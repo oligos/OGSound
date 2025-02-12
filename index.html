@@ -14,48 +14,49 @@
             font-family: 'Baloo 2', cursive !important;
         }
 
-        /* Background Gradient */
+        /* Background Gradient (Scroll Effect) */
         body {
-            background: linear-gradient(to bottom, black, #3d3d00, #5a5a00, #6e6e00, #807c00); /* Dark black to dark yellow */
+            background: linear-gradient(to bottom, black, #2b2b00, #494900, #616100, #757500); /* More black at top, darker yellow at bottom */
             background-size: 300% 300%;
             animation: gradientAnimation 10s ease infinite;
             margin: 0;
             padding: 0;
-            color: #fff; /* White text for contrast */
+            color: #fff;
             text-align: center;
             height: 100vh;
         }
 
-        /* Gradient Animation */
+        /* Dynamic Gradient Effect */
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Hero Section (Moves Title & Logo Up) */
+        /* Hero Section */
         .hero {
             padding: 30px;
-            margin-top: -80px; /* Move everything up */
+            margin-top: -40px; /* Lowered logo */
         }
 
         /* Logo Position */
         .logo {
             max-width: 250px;
-            margin-top: -20px !important; /* Moves logo slightly lower */
+            margin-top: 10px !important; /* Moves logo slightly lower */
         }
 
         /* Welcome Title Styling */
         h1 {
-            font-size: 42px; /* Increase size */
-            margin-top: -10px; /* Move it higher */
+            font-size: 42px;
+            margin-top: -5px; /* Moved higher */
             font-weight: 700;
+            line-height: 38px; /* Closer spacing */
         }
 
         /* Tagline Styling */
         .tagline {
             font-size: 18px;
-            margin-top: -10px;
+            margin-top: -5px; /* Moved higher */
         }
 
         /* Services Section */
@@ -68,27 +69,37 @@
         /* More Button */
         .more-button {
             display: block;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            background: rgba(0, 0, 0, 0.3); /* More transparent black */
             color: white;
             font-size: 20px;
             padding: 12px 40px;
             margin: 10px auto;
-            border: 2px solid white;
+            border: none; /* Removed border */
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 220px; /* Wider */
+            width: 220px;
         }
 
         .more-button:hover {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
         }
 
-        /* Collapsible Content */
+        /* Collapsible Content (Black Background Fade Effect) */
         .services-content {
             display: none;
             margin-top: 10px;
             font-size: 18px;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)); /* Fade effect from normal gradient */
+            border-radius: 8px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Show Services Smoothly */
+        .services-content.active {
+            display: block;
+            opacity: 1;
         }
     </style>
 </head>
@@ -117,7 +128,17 @@
     <script>
         function toggleServices() {
             var content = document.getElementById("servicesContent");
-            content.style.display = content.style.display === "block" ? "none" : "block";
+            if (content.style.display === "block") {
+                content.style.opacity = "0";
+                setTimeout(() => {
+                    content.style.display = "none";
+                }, 500);
+            } else {
+                content.style.display = "block";
+                setTimeout(() => {
+                    content.style.opacity = "1";
+                }, 50);
+            }
         }
     </script>
 
