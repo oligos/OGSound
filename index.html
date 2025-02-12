@@ -4,79 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
-    
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
-        /* Define the fade + slide animation */
-        @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Background Gradient */
+        body {
+            background: linear-gradient(180deg, #000000, #d1cf45);
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
         }
 
-        /* Apply the animation to all text elements */
-        body, h1, h2, h3, p, a, span, div {
-            font-family: 'Baloo 2', cursive !important;
-            animation: fadeSlideIn 1.5s ease-in-out;
-            animation-fill-mode: both;
-        }
-
-        /* Background & text styling */
-/* Background Gradient Transition on Scroll */
-body {
-    background: linear-gradient(to bottom, #000000, #111100, #222200, #333300, #666600, #888800);
-    background-attachment: fixed; /* Keeps it in place while scrolling */
-    height: 200vh; /* Ensures scrolling effect */
-    margin: 0;
-    padding: 0;
-    color: #fff; /* Keeps text readable */
-    text-align: center;
-}
-
-/* Animation for Moving Gradient */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-        /* Hero Section */
+        /* Hero Section Adjustments */
         .hero {
-            padding: 50px;
+            padding: 30px;
+            margin-top: -50px; /* Move everything up */
         }
 
-        /* Logo: No animation */
+        /* Logo Adjustments */
         .logo {
-    opacity: 1 !important;
-    max-width: 300px;
-    margin-top: 20px;
-
-    /* Explicitly remove any animations */
-    animation: none !important;
-    transform: none !important;
-
-    /* Ensure it stays in place */
-    position: relative !important;
-}
-
-        /* Content styling */
-        .content {
-            padding: 20px;
+            max-width: 250px;
+            margin-top: -40px !important; /* Moves the logo up */
+            animation: none !important;
+            transform: none !important;
+            position: relative !important;
         }
 
-        /* Footer */
-        footer {
+        /* Services Section */
+        .services-container {
             margin-top: 20px;
-            padding: 10px;
-            background: #111;
-            color: #aaa;
         }
+
+        .services-content {
+            display: none;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        }
+
+        .services-content.show {
+            display: block;
+            max-height: 500px; /* Adjust if needed */
+            opacity: 1;
+        }
+
+        .toggle-btn {
+            background: #f4d03f;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+
+        .toggle-btn:hover {
+            background: #e0b90d;
+        }
+
     </style>
 </head>
 <body>
@@ -87,17 +74,28 @@ body {
         <p>Your go-to solution for AV installations & more!</p>
     </div>
 
-    <div class="content">
-        <h2>About Us</h2>
-        <p>We specialize in audio-visual installations and top-tier services.</p>
-
-        <h2>Contact</h2>
-        <p>Email: contact@ogsound.com</p>
+    <!-- Services Section -->
+    <div class="services-container">
+        <button class="toggle-btn" onclick="toggleServices()">More</button>
+        <div class="services-content" id="servicesSection">
+            <h2>Our Services</h2>
+            <p>🔊 Professional AV installations</p>
+            <p>🎛️ Home theater setups</p>
+            <p>📡 Smart home automation</p>
+            <p>🎤 Audio mixing & production</p>
+        </div>
     </div>
 
     <footer>
-        &copy; 2025 O.G Sound. All Rights Reserved.
+        <p>&copy; 2025 O.G Sound. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function toggleServices() {
+            var section = document.getElementById("servicesSection");
+            section.classList.toggle("show");
+        }
+    </script>
 
 </body>
 </html>
