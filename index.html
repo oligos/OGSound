@@ -44,10 +44,14 @@
 
         /* Logo: No animation */
         .logo {
-            opacity: 1 !important; /* Prevents animation */
-            max-width: 300px;
-            margin-top: 20px;
-        }
+    opacity: 1 !important;
+    max-width: 300px;
+    margin-top: 20px;
+
+    /* Explicitly remove any animations */
+    animation: none !important;
+    transform: none !important;
+}
 
         /* Content styling */
         .content {
