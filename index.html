@@ -1,30 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        body, h1, h2, h3, h4, h5, h6, p, a, span, div {
-            font-family: 'Baloo 2', cursive !important;
+        /* Define the fade + slide animation */
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply the animation to all text elements */
+        body, h1, h2, h3, p, a, span, div {
+            font-family: 'Baloo 2', cursive !important;
+            animation: fadeSlideIn 1.5s ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        /* Background & text styling */
+        body {
             margin: 0;
             padding: 0;
             background-color: #000; /* Black background */
             color: #fff; /* White text */
             text-align: center;
         }
+
+        /* Hero Section */
         .hero {
             padding: 50px;
         }
+
+        /* Logo: No animation */
         .logo {
+            opacity: 1 !important; /* Prevents animation */
             max-width: 300px;
             margin-top: 20px;
         }
+
+        /* Content styling */
         .content {
             padding: 20px;
         }
+
+        /* Footer */
         footer {
             margin-top: 20px;
             padding: 10px;
@@ -34,6 +64,7 @@
     </style>
 </head>
 <body>
+
     <div class="hero">
         <img src="static/images/logo.png" alt="O.G Sound Logo" class="logo">
         <h1>Welcome to O.G Sound</h1>
@@ -51,5 +82,6 @@
     <footer>
         &copy; 2025 O.G Sound. All Rights Reserved.
     </footer>
+
 </body>
 </html>
