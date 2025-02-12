@@ -29,15 +29,14 @@
         }
 
         /* Background & text styling */
-/* Background with Animated Gradient */
+/* Background Gradient Transition on Scroll */
 body {
-    background: linear-gradient(135deg, #DDE855, #555000, #000000);
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
-    height: 100vh; /* Ensures full viewport background */
+    background: linear-gradient(to bottom, #000000, #222200, #555500, #888800, #DDE855);
+    background-attachment: fixed; /* Keeps it in place while scrolling */
+    height: 200vh; /* Ensures scrolling effect */
     margin: 0;
     padding: 0;
-    color: #fff; /* Keep text white for contrast */
+    color: #fff; /* Ensures contrast */
     text-align: center;
 }
 
