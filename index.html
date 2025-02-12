@@ -29,19 +29,19 @@
         }
 
         /* Background & text styling */
-/* Background Gradient with Animation */
+/* Background with Animated Gradient */
 body {
     background: linear-gradient(135deg, #DDE855, #555000, #000000);
-    background-size: 200% 200%;
+    background-size: 400% 400%;
     animation: gradientAnimation 10s ease infinite;
+    height: 100vh; /* Ensures full viewport background */
     margin: 0;
     padding: 0;
-    color: #fff; /* Keeps text white for contrast */
+    color: #fff; /* Keep text white for contrast */
     text-align: center;
-    height: 100vh; /* Ensures full viewport background */
 }
 
-/* Ensure the gradient moves smoothly */
+/* Animation for Moving Gradient */
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
