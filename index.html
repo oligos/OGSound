@@ -29,13 +29,23 @@
         }
 
         /* Background & text styling */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-            text-align: center;
-        }
+/* Background Gradient with Animation */
+body {
+    background: linear-gradient(135deg, #f4d03f, #f1c40f, #eab308);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Keep text white for contrast */
+    text-align: center;
+}
+
+/* Animation for Moving Gradient */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
         /* Hero Section */
         .hero {
