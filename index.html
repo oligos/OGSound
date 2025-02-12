@@ -14,16 +14,16 @@
             font-family: 'Baloo 2', cursive !important;
         }
 
-        /* Background Gradient with Smooth Transition */
+        /* Background Gradient */
         body {
-            background: linear-gradient(180deg, #000000, #d4af37, #a8851e); /* Black to Dark Yellow */
+            background: linear-gradient(to bottom, black, #3d3d00, #5a5a00, #6e6e00, #807c00); /* Dark black to dark yellow */
             background-size: 300% 300%;
             animation: gradientAnimation 10s ease infinite;
-            height: 100vh;
             margin: 0;
             padding: 0;
-            color: #fff;
+            color: #fff; /* White text for contrast */
             text-align: center;
+            height: 100vh;
         }
 
         /* Gradient Animation */
@@ -33,110 +33,91 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Hero Section (Moves Everything Higher) */
+        /* Hero Section (Moves Title & Logo Up) */
         .hero {
             padding: 30px;
-            margin-top: -30px; /* Adjust to bring up content */
+            margin-top: -80px; /* Move everything up */
         }
 
-        /* Logo (Lowering Slightly) */
+        /* Logo Position */
         .logo {
             max-width: 250px;
-            margin-top: -20px !important; /* Lower than previous value */
-            animation: fadeSlideIn 1.5s ease-in-out;
+            margin-top: -20px !important; /* Moves logo slightly lower */
+        }
+
+        /* Welcome Title Styling */
+        h1 {
+            font-size: 42px; /* Increase size */
+            margin-top: -10px; /* Move it higher */
+            font-weight: 700;
+        }
+
+        /* Tagline Styling */
+        .tagline {
+            font-size: 18px;
+            margin-top: -10px;
         }
 
         /* Services Section */
-        .services-container {
+        .services {
+            font-size: 24px;
+            font-weight: bold;
             margin-top: 30px;
         }
 
-        /* Services Header */
-        .services-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        /* More Button */
+        .more-button {
+            display: block;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            color: white;
+            font-size: 20px;
+            padding: 12px 40px;
+            margin: 10px auto;
+            border: 2px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 220px; /* Wider */
         }
 
-        /* Services Content (Initially Hidden) */
+        .more-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Collapsible Content */
         .services-content {
             display: none;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-        }
-
-        /* Show Content When Clicked */
-        .services-content.show {
-            display: block;
-            max-height: 500px;
-            opacity: 1;
-        }
-
-        /* More Button */
-        .toggle-btn {
-            background: #000000; /* Black */
-            color: #ffffff; /* White */
-            border: none;
-            padding: 12px 25px;
+            margin-top: 10px;
             font-size: 18px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            border-radius: 8px;
-            width: 180px; /* Wider Button */
-        }
-
-        /* Button Hover Effect */
-        .toggle-btn:hover {
-            background: #222222; /* Slightly lighter black */
-            transform: scale(1.05);
-        }
-
-        /* Fade + Slide Animation */
-        @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Hero Section -->
     <div class="hero">
         <img src="static/images/logo.png" alt="O.G Sound Logo" class="logo">
         <h1>Welcome to O.G Sound</h1>
-        <p>Your go-to solution for AV installations & more!</p>
+        <p class="tagline">Top-quality home AV installations at the best prices.</p>
     </div>
 
-    <!-- Services Section -->
-    <div class="services-container">
-        <h2 class="services-title">Services</h2> <!-- Services Label Above Button -->
-        <button class="toggle-btn" onclick="toggleServices()">More</button>
-        <div class="services-content" id="servicesSection">
-            <p>🔊 Professional AV installations</p>
-            <p>🎛️ Home theater setups</p>
-            <p>📡 Smart home automation</p>
-            <p>🎤 Audio mixing & production</p>
-        </div>
+    <div class="services">Services</div>
+    <button class="more-button" onclick="toggleServices()">More</button>
+
+    <div class="services-content" id="servicesContent">
+        <p>• Wall Mount TV</p>
+        <p>• Surround Sound Speaker Set Up</p>
+        <p>• HomeTech Fix</p>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 O.G Sound. All Rights Reserved.</p>
+        <p>© 2025 O.G Sound. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for Services Toggle -->
     <script>
         function toggleServices() {
-            var section = document.getElementById("servicesSection");
-            section.classList.toggle("show");
+            var content = document.getElementById("servicesContent");
+            content.style.display = content.style.display === "block" ? "none" : "block";
         }
     </script>
 
