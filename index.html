@@ -2,58 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>O.G Sound</title>
-  
+
   <!-- Load Baloo 2 Font -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
-  
+
   <!-- External CSS -->
   <link rel="stylesheet" type="text/css" href="static/styles.css">
-  
+
   <!-- External JavaScript -->
   <script defer src="static/script.js"></script>
-  
+
   <style>
-    /* Global Styles */
-    html, body {
+    /* GLOBAL STYLES */
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      height: 100%;
-      font-family: 'Baloo 2', sans-serif;
-      background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: fadeIn 1.5s ease-out;
     }
-    
-    /* Fade in and move down animation */
-    @keyframes fadeIn {
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Baloo 2', sans-serif;
+      color: white; /* Default font color */
+      background: linear-gradient(to bottom, black, #2b2300, #5a4c00) no-repeat center center;
+      background-size: cover;
+      overflow-x: hidden; /* Prevent horizontal scroll & white background on overscroll */
+    }
+
+    /* Fade-in and slight upward movement on load */
+    @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
-    /* Bring elements closer together */
-    .section {
-      margin: 10px 0;
-      padding: 5px;
-      width: 100%;
-      max-width: 800px;
+
+    body {
+      animation: fadeInUp 1.5s ease-out;
     }
-    
-    /* Corner Speaker Images (increased size) */
+
+    /* CORNER SPEAKER IMAGES */
     .corner-image {
       position: fixed;
       top: 10px;
-      width: 70px;
+      width: 90px; /* Increased size */
       height: auto;
       z-index: 1000;
     }
@@ -63,69 +61,108 @@
     .corner-image.right {
       right: 10px;
     }
-    
-    /* Hero Section */
+
+    /* HERO SECTION */
     .hero {
-      padding-top: 80px; /* Push the hero section down */
-      animation: fadeIn 1.5s ease-out;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 150px; /* Move down further */
+      text-align: center;
     }
+
     .welcome {
-      font-size: 2.5em; /* Bigger text */
-      margin: 0.2em 0;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Subtle dark shadow */
+      font-size: 3em; /* Bigger text */
+      margin-bottom: 0.3em;
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+      transition: transform 0.3s ease;
     }
+
     .logo {
-      width: 200px; /* Bigger logo */
+      width: 250px; /* Bigger logo */
       max-width: 80%;
       margin: 10px 0;
       transition: transform 0.3s ease;
     }
+
     .highlight-text {
-      font-size: 2.5em; /* Matching the welcome text size */
-      color: white;
-      margin: 0.2em 0;
+      font-size: 3em; /* Match size with welcome */
+      text-align: center;
+      margin: 0.3em 0;
+      transition: transform 0.3s ease;
+      /* White color is inherited from body */
+    }
+
+    /* SECTIONS (Services, Contact, About Me) */
+    .section {
+      width: 100%;
+      max-width: 800px;
+      margin: 10px auto; /* Center horizontally */
+      padding: 5px 10px;
+    }
+
+    .section-title {
+      display: inline-block;
+      position: relative;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      cursor: default;
+      /* Add a shorter underline */
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 50%;
+      margin: 5px auto 0 auto;
+      border-bottom: 2px solid white;
+    }
+    /* Cool hover effect for section titles */
+    .section-title:hover {
+      transform: scale(1.05);
       transition: transform 0.3s ease;
     }
-    
-    /* About Me Section */
-    #about p {
+
+    /* MORE BUTTON */
+    .more-btn {
       font-size: 1em;
-      line-height: 1.4em;
-      margin: 0.5em 0;
+      padding: 5px 15px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid white;
+      border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s ease;
     }
-    #about img.about-image {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      margin-top: 10px;
+    .more-btn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
     }
-    
-    /* Dropdown containers for Services, Contact, and About Me */
+
+    /* DROPDOWN CONTAINER */
     .dropdown-container {
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.5s ease-out;
+      color: white; /* Ensure text is white */
     }
     .dropdown-container.active {
-      max-height: 1000px; /* Adjust if needed */
+      max-height: 1000px; /* large enough to reveal content */
     }
-    
-    /* Individual service details dropdowns */
+
+    /* INDIVIDUAL SERVICE DETAILS */
     .service-details {
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.5s ease-out;
       text-align: left;
       margin: 5px 0;
+      color: white; /* Ensure text is white */
     }
     .service-details.active {
       max-height: 500px;
     }
-    
-    /* Services Section Items */
+
+    /* SERVICES ITEMS */
     #services-items {
       display: flex;
       flex-direction: column;
@@ -136,8 +173,8 @@
       text-align: center;
       margin: 5px 0;
     }
-    
-    /* Price Button Styling */
+
+    /* PRICE BUTTON */
     .price-btn {
       font-size: 0.8em;
       padding: 5px 10px;
@@ -147,55 +184,73 @@
       border-radius: 4px;
       cursor: pointer;
       margin-left: 10px;
+      transition: background-color 0.3s ease;
     }
-    
-    /* More button styling */
-    .more-btn {
+    .price-btn:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* ABOUT ME TEXT */
+    #about-container p {
       font-size: 1em;
-      padding: 5px 15px;
-      margin: 5px;
-      cursor: pointer;
+      line-height: 1.4em;
+      margin: 0.5em auto;
+      max-width: 90%; /* narrower for phones */
+      text-align: left;
     }
-    
-    /* Responsive adjustments for mobile */
+    #about-container img.about-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    /* RESPONSIVE ADJUSTMENTS FOR MOBILE */
     @media (max-width: 600px) {
-      .welcome, .highlight-text {
-        font-size: 2em;
+      .welcome,
+      .highlight-text {
+        font-size: 2em; /* Scale down for phone */
+      }
+      .hero {
+        padding-top: 100px; /* adjust for phone */
       }
       .logo {
-        width: 150px;
-      }
-      #about p {
-        font-size: 0.9em;
+        width: 180px; /* slightly smaller on phone */
       }
       .corner-image {
-        width: 60px;
+        width: 70px; /* corner speakers slightly smaller on phone */
+      }
+      .section-title {
+        font-size: 1.5em;
+      }
+      #about-container p {
+        font-size: 0.95em;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Corner Speaker Images -->
+  <!-- CORNER SPEAKER IMAGES -->
   <img src="static/images/speakerpic.png" class="corner-image left" alt="Speaker Top Left">
   <img src="static/images/speakerpic.png" class="corner-image right" alt="Speaker Top Right">
-  
-  <!-- Hero Section -->
-  <div class="hero fade-in">
+
+  <!-- HERO SECTION -->
+  <div class="hero">
     <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
     <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo" id="scroll-logo">
     <p class="highlight-text" id="scroll-text">
       I offer top-quality home AV installations at the best prices.
     </p>
   </div>
-  
-  <!-- Services Section -->
+
+  <!-- SERVICES SECTION -->
   <div class="section">
     <h2 class="section-title">Services</h2>
     <button class="more-btn" onclick="toggleDropdown('services-container')">More</button>
     <div id="services-container" class="dropdown-container">
       <div id="services-items">
         <div class="service-item">
-          Wall Mount 
+          Wall Mount
           <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button>
         </div>
         <div id="wall-mount" class="service-details">
@@ -206,7 +261,7 @@
           Soundbar Mounting – $50
         </div>
         <div class="service-item">
-          Surround Sound Speaker Setup 
+          Surround Sound Speaker Setup
           <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button>
         </div>
         <div id="surround-sound" class="service-details">
@@ -217,7 +272,7 @@
           Wire Concealment – $150 per room
         </div>
         <div class="service-item">
-          Troubleshooting 
+          Troubleshooting
           <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button>
         </div>
         <div id="troubleshooting" class="service-details">
@@ -231,8 +286,8 @@
       </div>
     </div>
   </div>
-  
-  <!-- Contact Section -->
+
+  <!-- CONTACT SECTION -->
   <div class="section">
     <h2 class="section-title">Contact</h2>
     <button class="more-btn" onclick="toggleDropdown('contact-container')">More</button>
@@ -240,8 +295,8 @@
       <p>Email: contact@ogsound.ca</p>
     </div>
   </div>
-  
-  <!-- About Me Section -->
+
+  <!-- ABOUT ME SECTION -->
   <div class="section">
     <h2 class="section-title">About Me</h2>
     <button class="more-btn" onclick="toggleDropdown('about-container')">More</button>
@@ -255,20 +310,20 @@
       <img src="static/images/aboutme.png" class="about-image" alt="About Me Image">
     </div>
   </div>
-  
+
   <script>
-    // Function to toggle dropdowns with slide animation
+    // Toggles dropdowns with a slide-out effect
     function toggleDropdown(id) {
       const element = document.getElementById(id);
       element.classList.toggle('active');
     }
-    
-    // Interactive scaling on scroll for hero texts (Welcome, Logo, Tagline)
+
+    // Interactive scaling on scroll for hero texts
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      // Calculate a small scale factor based on scroll position, capped at 1.1
+      // Scale factor based on scroll, capped at 1.1
       const scaleFactor = 1 + Math.min(scrollY / 1000, 0.1);
-      
+
       document.getElementById('scroll-welcome').style.transform = `scale(${scaleFactor})`;
       document.getElementById('scroll-logo').style.transform = `scale(${scaleFactor})`;
       document.getElementById('scroll-text').style.transform = `scale(${scaleFactor})`;
