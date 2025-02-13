@@ -10,6 +10,18 @@ body {
     align-items: center;
 }
 
+/* Speaker Images */
+.speaker-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.small-speaker {
+    width: 80px; /* Adjust this size as needed */
+    height: auto;
+}
+
 /* Hero Section */
 .hero {
     padding: 40px;
