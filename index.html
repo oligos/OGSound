@@ -113,13 +113,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* Reduced top padding to bring text closer */
-      padding-top: 140px;
+      /* Reduced top padding to bring text closer to the top */
+      padding-top: 120px;
     }
     .welcome {
       font-size: 4.2em;
       font-weight: 800;
-      margin-bottom: 0.1em;
+      margin-bottom: 0; /* Removed extra space below */
       /* Extra shading at the top: second text-shadow with negative offset */
       text-shadow:
         0 -2px 3px rgba(0, 0, 0, 0.7),
@@ -127,16 +127,16 @@
       transition: transform 0.3s ease;
     }
     .logo {
-      width: 550px; 
+      /* Increased the base width from 550px to 650px */
+      width: 650px; 
       max-width: 90%;
-      /* Slightly reduced vertical margin to bring them closer */
-      margin: 0.1em 0;
+      margin: 0; /* Removed extra space above/below */
       transition: transform 0.3s ease;
     }
     .highlight-text {
       font-size: 1.5em;
       font-weight: 800;
-      margin-top: 0.1em;
+      margin-top: 0; /* Removed extra space above */
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
@@ -241,12 +241,13 @@
     /* CONTACT EMAIL ANIMATION */
     @keyframes emailPulse {
       0%, 100% {
-        color: var(--theme-yellow);
-        text-shadow: 0 0 5px var(--theme-yellow);
+        color: #fff;
+        /* Black glow around white text */
+        text-shadow: 0 0 5px #000;
       }
       50% {
         color: #fff;
-        text-shadow: 0 0 15px var(--theme-yellow);
+        text-shadow: 0 0 15px #000;
       }
     }
     #contact-email {
@@ -278,7 +279,7 @@
         width: 300px;
       }
       .hero {
-        padding-top: 120px;
+        padding-top: 100px;
       }
       .highlight-text {
         font-size: 1.2em;
