@@ -1,79 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O.G Sound</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O.G Sound</title>
 
-    <!-- Load Baloo 2 Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Link External CSS -->
-    <link rel="stylesheet" type="text/css" href="static/styles.css">
+  <!-- Load Baloo 2 Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet" />
 
-    <!-- Link External JavaScript -->
-    <script defer src="static/script.js"></script>
+  <!-- Link External CSS -->
+  <link rel="stylesheet" type="text/css" href="static/styles.css" />
 
-    <style>
-        /* Global Styles */
-        html, body {
-            margin: 0;
-            height: 100%;
-            font-family: 'Baloo 2', sans-serif;
-            text-align: center;
-            background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: fadeIn 1.5s ease-out;
-        }
-    </style>
+  <!-- Link External JavaScript -->
+  <script defer src="static/script.js"></script>
+
+  <style>
+    /* Global Styles */
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Baloo 2', sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Bring elements closer together */
+    .section {
+      margin: 20px 0;
+      padding: 10px;
+    }
+
+    /* Hero Section Tagline */
+    .highlight-text {
+      color: white; /* changed to white */
+      font-size: 1.8em; /* increased size */
+      margin: 10px 0;
+    }
+
+    /* Corner Speaker Images */
+    .corner-image {
+      position: fixed;
+      top: 10px;
+      width: 50px;
+      height: auto;
+      z-index: 1000;
+    }
+    .corner-image.left {
+      left: 10px;
+    }
+    .corner-image.right {
+      right: 10px;
+    }
+
+    /* Services Section Adjustments */
+    #services {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-item {
+      width: 80%;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    /* Price Button Styling */
+    .price-btn {
+      font-size: 0.8em;
+      padding: 5px 10px;
+      background-color: rgba(0, 0, 0, 0.5); /* transparent black */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .section {
+        margin: 10px 0;
+        padding: 5px;
+      }
+      .price-btn {
+        font-size: 0.7em;
+        padding: 4px 8px;
+      }
+      .highlight-text {
+        font-size: 1.5em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero fade-in">
-        <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
-        <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo" id="scroll-logo">
-        <p class="highlight-text" id="scroll-text">I offer top-quality home AV installations at the best prices.</p>
-    </div>
+  <!-- Corner Images -->
+  <img src="static/images/speakerpic.png" class="corner-image left" alt="Speaker Top Left" />
+  <img src="static/images/speakerpic.png" class="corner-image right" alt="Speaker Top Right" />
 
-    <!-- Services Section -->
-    <div class="section">
-        <h2 class="section-title">Services</h2>
-        <button class="more-btn" onclick="toggleDropdown('services')">More</button>
-        <div id="services" class="dropdown-content">
-            <div class="service-item">Wall Mount <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button></div>
-            <div id="wall-mount" class="dropdown-content">Basic Mount (Fixed/Tilting, up to 65") – $150<br>Full-Motion Mount (Any size) – $250<br>Over Fireplace/Brick Wall – $350+<br>In-Wall Cable Management – $100<br>Soundbar Mounting – $50</div>
-            <div class="service-item">Surround Sound Speaker Setup <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button></div>
-            <div id="surround-sound" class="dropdown-content">5.1 Home Theater Setup – $200<br>7.1 Home Theater Setup – $300<br>Dolby Atmos Setup – $400+<br>Wall/Ceiling Speaker Mounting – $75 per speaker<br>Wire Concealment – $150 per room</div>
-            <div class="service-item">Troubleshooting <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button></div>
-            <div id="troubleshooting" class="dropdown-content">Basic Troubleshooting (Up to 1 Hour) – $100<br>Advanced Troubleshooting (1–2 Hours) – $175<br>Full System Diagnosis & Repair – $250+<br>Device Setup & Configuration – $75 per device<br>Wi-Fi & Streaming Issues Fix – $125<br>Home AV Optimization & Calibration – $150</div>
-        </div>
-    </div>
+  <!-- Hero Section -->
+  <div class="hero fade-in">
+    <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
+    <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo" id="scroll-logo" />
+    <p class="highlight-text" id="scroll-text">
+      I offer top-quality home AV installations at the best prices.
+    </p>
+  </div>
 
-    <!-- Contact Section -->
-    <div class="section">
-        <h2 class="section-title">Contact</h2>
-        <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
-        <div id="contact" class="dropdown-content">
-            <p>Email: contact@ogsound.ca</p>
-        </div>
+  <!-- Services Section -->
+  <div class="section">
+    <h2 class="section-title">Services</h2>
+    <button class="more-btn" onclick="toggleDropdown('services')">More</button>
+    <div id="services" class="dropdown-content">
+      <div class="service-item">
+        Wall Mount 
+        <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button>
+      </div>
+      <div id="wall-mount" class="dropdown-content">
+        Basic Mount (Fixed/Tilting, up to 65") – $150<br>
+        Full-Motion Mount (Any size) – $250<br>
+        Over Fireplace/Brick Wall – $350+<br>
+        In-Wall Cable Management – $100<br>
+        Soundbar Mounting – $50
+      </div>
+      <div class="service-item">
+        Surround Sound Speaker Setup 
+        <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button>
+      </div>
+      <div id="surround-sound" class="dropdown-content">
+        5.1 Home Theater Setup – $200<br>
+        7.1 Home Theater Setup – $300<br>
+        Dolby Atmos Setup – $400+<br>
+        Wall/Ceiling Speaker Mounting – $75 per speaker<br>
+        Wire Concealment – $150 per room
+      </div>
+      <div class="service-item">
+        Troubleshooting 
+        <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button>
+      </div>
+      <div id="troubleshooting" class="dropdown-content">
+        Basic Troubleshooting (Up to 1 Hour) – $100<br>
+        Advanced Troubleshooting (1–2 Hours) – $175<br>
+        Full System Diagnosis & Repair – $250+<br>
+        Device Setup & Configuration – $75 per device<br>
+        Wi-Fi & Streaming Issues Fix – $125<br>
+        Home AV Optimization & Calibration – $150
+      </div>
     </div>
+  </div>
 
-    <!-- About Me Section -->
-    <div class="section">
-        <h2 class="section-title">About Me</h2>
-        <button class="more-btn" onclick="toggleDropdown('about')">More</button>
-        <div id="about" class="dropdown-content">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <p><strong>Why choose me?</strong></p>
-            <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
-            <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
-            <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
-            <p>📍 Proudly serving Vancouver and surrounding areas.</p>
-            <img src="static/images/aboutme.png" class="about-image" alt="About Me Image">
-        </div>
+  <!-- Contact Section -->
+  <div class="section">
+    <h2 class="section-title">Contact</h2>
+    <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
+    <div id="contact" class="dropdown-content">
+      <p>Email: contact@ogsound.ca</p>
     </div>
+  </div>
+
+  <!-- About Me Section -->
+  <div class="section">
+    <h2 class="section-title">About Me</h2>
+    <button class="more-btn" onclick="toggleDropdown('about')">More</button>
+    <div id="about" class="dropdown-content">
+      <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
+      <p><strong>Why choose me?</strong></p>
+      <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
+      <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
+      <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
+      <p>📍 Proudly serving Vancouver and surrounding areas.</p>
+      <img src="static/images/aboutme.png" class="about-image" alt="About Me Image" />
+    </div>
+  </div>
 </body>
 </html>
