@@ -44,12 +44,12 @@
 
         /* Hero Section */
         .hero {
-            padding: 50px 40px 5px;
+            padding: 40px 40px 5px;
             position: relative;
         }
         .welcome {
             font-size: 50px;
-            margin-top: 50px;
+            margin-top: 45px;
             color: white;
             text-shadow: 0px -5px 10px rgba(0, 0, 0, 0.7);
             animation: fadeInUp 1.5s ease-out;
@@ -57,7 +57,7 @@
         }
         .logo {
             max-width: 350px;
-            margin-top: -15px;
+            margin-top: -20px;
             animation: glow 3s ease-in-out;
             transition: transform 0.3s ease-out;
         }
@@ -121,7 +121,17 @@
     <div class="section">
         <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleDropdown('services')">More</button>
-        <div id="services" class="dropdown-content">[Services content remains unchanged]</div>
+        <div id="services" class="dropdown-content">
+            <p>Wall Mount</p>
+            <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button>
+            <div id="wall-mount" class="dropdown-content">Basic Mount (up to 65") - $150<br>Full-Motion - $250<br>Over Fireplace - $350+<br>In-Wall Cable - $100<br>Soundbar Mounting - $50</div>
+            <p>Surround Sound Speaker Setup</p>
+            <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button>
+            <div id="surround-sound" class="dropdown-content">5.1 Setup - $200<br>7.1 Setup - $300<br>Dolby Atmos - $400+<br>Wall/Ceiling Mount - $75 per speaker<br>Wire Concealment - $150 per room</div>
+            <p>Troubleshooting</p>
+            <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button>
+            <div id="troubleshooting" class="dropdown-content">Basic - $100<br>Advanced - $175<br>Full System - $250+<br>Device Setup - $75 per device<br>Wi-Fi Fix - $125<br>Home AV Calibration - $150</div>
+        </div>
     </div>
 
     <!-- Contact Section -->
@@ -139,20 +149,8 @@
         <button class="more-btn" onclick="toggleDropdown('about')">More</button>
         <div id="about" class="dropdown-content">
             <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <p><strong>Why choose me?</strong></p>
-            <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
-            <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
-            <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
-            <p>📍 Proudly serving Vancouver and surrounding areas.</p>
             <img src="static/images/aboutme.png" class="about-image" alt="About Me Image">
         </div>
     </div>
-
-    <script>
-        function toggleDropdown(id) {
-            let element = document.getElementById(id);
-            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
-        }
-    </script>
 </body>
 </html>
