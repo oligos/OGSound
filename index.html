@@ -40,14 +40,12 @@
       text-align: center;
     }
     body {
-      /* Updated gradient with dark yellow at the bottom */
       background: linear-gradient(to bottom, black, #2b2300, var(--theme-yellow));
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover;
       animation: fadeInUp 1.5s ease-out;
     }
-
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -113,27 +111,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 100px; /* Increased to bring the group lower on the page */
+      padding-top: 100px; /* Group is lower on the page */
+      gap: 0; /* No extra gap between elements */
     }
     .welcome {
       font-size: 4.2em;
       font-weight: 800;
-      margin: 0; /* No extra spacing */
-      /* Added a stronger multi-layered black shadow */
-      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+      margin: 0;
+      /* Added top shadow (negative Y-offset) and bottom shadow */
+      text-shadow: 0 -2px 4px rgba(0, 0, 0, 0.9), 0 4px 6px rgba(0, 0, 0, 0.9);
       transition: transform 0.3s ease;
     }
     .logo {
       width: 850px; /* Bigger logo */
       max-width: 90%;
-      margin: 0; /* Remove extra spacing */
+      margin: 0;
       transition: transform 0.3s ease;
     }
     .highlight-text {
       font-size: 1.5em;
       font-weight: 800;
-      margin: 0; /* Remove extra spacing */
-      /* Added a strong black shadow */
+      margin: 0;
       text-shadow: 2px 2px 4px #000;
       transition: transform 0.3s ease;
     }
@@ -299,7 +297,6 @@
        alt="Speaker Top Left" 
        id="speaker-left" 
        onclick="pulseSpeaker('speaker-left')">
-
   <img src="static/images/speakerpic.png" 
        class="corner-image right" 
        alt="Speaker Top Right" 
