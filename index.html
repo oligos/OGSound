@@ -28,90 +28,76 @@
             animation: fadeIn 1.5s ease-out;
         }
 
-        /* Speaker Images (Positioned in corners) */
-        .speaker-container {
-            position: absolute;
-            width: 100%;
-            top: 10px;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-        .small-speaker {
-            width: 80px;
-            height: auto;
-            filter: drop-shadow(0px 0px 10px white);
-        }
-
         /* Hero Section */
         .hero {
-            padding: 70px 40px 10px;
+            padding: 60px 40px 10px;
             position: relative;
         }
         .welcome {
             font-size: 50px;
-            margin-top: 40px;
+            margin-top: 30px;
             color: white;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 0px -5px 10px rgba(0, 0, 0, 0.7);
             animation: fadeInUp 1.5s ease-out;
         }
         .logo {
             max-width: 350px;
-            margin-bottom: 10px;
-            margin-top: -20px;
+            margin-top: -10px;
             animation: glow 3s ease-in-out;
         }
         .highlight-text {
             font-size: 22px;
             font-weight: bold;
             color: white;
-            margin-top: -30px;
+            margin-top: -20px;
             transition: transform 0.3s ease-out;
         }
-
-        /* Adjusted Sections */
-        .section {
-            margin-top: -50px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            color: white;
-            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Scroll Effect for Highlight Text */
         .scroll-effect {
             transform: scale(1.05);
         }
 
-        /* Transparent More Buttons */
-        .more-btn {
+        /* Service Section Styling */
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+        .price-btn {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 15px;
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        .more-btn:hover {
+        .price-btn:hover {
             background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dropdown-content {
+            display: none;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 10px;
+            color: white;
+            animation: slideDown 0.5s ease-out forwards;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-
-    <!-- Speaker Images Positioned in Upper Corners -->
-    <div class="speaker-container">
-        <img src="static/images/speakerpic.png" class="speaker small-speaker left-corner" alt="Speaker">
-        <img src="static/images/speakerpic.png" class="speaker small-speaker right-corner" alt="Speaker">
-    </div>
-
-    <!-- Hero Section with Glow Effect -->
+    <!-- Hero Section -->
     <div class="hero fade-in">
         <h1 class="welcome">Welcome To</h1>
-        <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo">
+        <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo" id="scroll-logo">
         <p class="highlight-text" id="scroll-text">I offer top-quality home AV installations at the best prices.</p>
     </div>
 
@@ -119,23 +105,13 @@
     <div class="section">
         <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleDropdown('services')">More</button>
-        <div id="services" class="dropdown-content" style="display:none;">[Service details here]</div>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="section">
-        <h2 class="section-title">Contact</h2>
-        <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
-        <div id="contact" class="dropdown-content" style="display:none;">Email: contact@ogsound.ca</div>
-    </div>
-
-    <!-- About Me Section -->
-    <div class="section">
-        <h2 class="section-title">About Me</h2>
-        <button class="more-btn" onclick="toggleDropdown('about')">More</button>
-        <div id="about" class="dropdown-content" style="display:none;">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image" loading="lazy">
+        <div id="services" class="dropdown-content">
+            <div class="service-item">Wall Mount <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button></div>
+            <div id="wall-mount" class="dropdown-content">Basic Mount (up to 65") - $150<br>Full-Motion - $250<br>Over Fireplace - $350+<br>In-Wall Cable - $100<br>Soundbar Mounting - $50</div>
+            <div class="service-item">Surround Sound Speaker Setup <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button></div>
+            <div id="surround-sound" class="dropdown-content">5.1 Setup - $200<br>7.1 Setup - $300<br>Dolby Atmos - $400+<br>Wall/Ceiling Mount - $75 per speaker<br>Wire Concealment - $150 per room</div>
+            <div class="service-item">Troubleshooting <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button></div>
+            <div id="troubleshooting" class="dropdown-content">Basic - $100<br>Advanced - $175<br>Full System - $250+<br>Device Setup - $75 per device<br>Wi-Fi Fix - $125<br>Home AV Calibration - $150</div>
         </div>
     </div>
 
@@ -151,14 +127,16 @@
 
         window.addEventListener('scroll', function () {
             let highlightText = document.getElementById('scroll-text');
+            let logo = document.getElementById('scroll-logo');
             let scrollPosition = window.scrollY;
             if (scrollPosition > 100) {
                 highlightText.classList.add('scroll-effect');
+                logo.classList.add('scroll-effect');
             } else {
                 highlightText.classList.remove('scroll-effect');
+                logo.classList.remove('scroll-effect');
             }
         });
     </script>
-
 </body>
 </html>
