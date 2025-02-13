@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
 
-    <!-- Speaker Images on Top Corners -->
-    <img src="static/images/speakerpic.png" class="speaker-left">
-    <img src="static/images/speakerpic.png" class="speaker-right">
+    <!-- Top Speaker Images -->
+    <img src="static/images/speakerpic.png" class="speaker top-left">
+    <img src="static/images/speakerpic.png" class="speaker top-right">
 
     <!-- Hero Section -->
     <div class="hero">
@@ -21,63 +20,64 @@
     </div>
 
     <!-- Services Section -->
-    <section class="services">
-        <h2>Services</h2>
+    <div class="section">
+        <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleServices()">More</button>
-
-        <div id="services-content" class="hidden">
-            <div class="service">
+        <div id="services" class="dropdown-content">
+            <div class="service-item">
                 <p>Wall Mount TV</p>
-                <button class="price-btn" onclick="togglePrice('wall-mount-price')">Prices</button>
-                <div id="wall-mount-price" class="price-dropdown hidden">
-                    <p>Basic Mount (Fixed/Tilting, up to 65") — $150</p>
-                    <p>Full-Motion Mount (Any size) — $250</p>
-                    <p>Over Fireplace/Brick Wall — $350+</p>
-                    <p>In-Wall Cable Management — $100</p>
-                    <p>Soundbar Mounting — $50</p>
+                <button class="price-btn" onclick="togglePrice('wall-mount-prices')">Prices</button>
+                <div id="wall-mount-prices" class="price-dropdown">
+                    <p>Basic Mount (Fixed/Tilting, up to 65") – $150</p>
+                    <p>Full-Motion Mount (Any size) – $250</p>
+                    <p>Over Fireplace/Brick Wall – $350+</p>
+                    <p>In-Wall Cable Management – $100</p>
+                    <p>Soundbar Mounting – $50</p>
                 </div>
             </div>
+            <hr>
 
-            <div class="service">
-                <p>Surround Sound Speaker Setup</p>
-                <button class="price-btn" onclick="togglePrice('surround-sound-price')">Prices</button>
-                <div id="surround-sound-price" class="price-dropdown hidden">
-                    <p>5.1 Home Theater Setup — $200</p>
-                    <p>7.1 Home Theater Setup — $300</p>
-                    <p>Dolby Atmos Setup — $400+</p>
-                    <p>Wall/Ceiling Speaker Mounting — $75 per speaker</p>
-                    <p>Wire Concealment — $150 per room</p>
+            <div class="service-item">
+                <p>Surround Sound Speaker Set Up</p>
+                <button class="price-btn" onclick="togglePrice('surround-prices')">Prices</button>
+                <div id="surround-prices" class="price-dropdown">
+                    <p>5.1 Home Theater Setup – $200</p>
+                    <p>7.1 Home Theater Setup – $300</p>
+                    <p>Dolby Atmos Setup – $400+</p>
+                    <p>Wall/Ceiling Speaker Mounting – $75 per speaker</p>
+                    <p>Wire Concealment – $150 per room</p>
+                    <p>These prices do not include speaker and amplifier prices.</p>
                 </div>
             </div>
+            <hr>
 
-            <div class="service">
+            <div class="service-item">
                 <p>Home Tech Fix</p>
-                <button class="price-btn" onclick="togglePrice('home-tech-price')">Prices</button>
-                <div id="home-tech-price" class="price-dropdown hidden">
-                    <p>Basic Troubleshooting (Up to 1 Hour) — $100</p>
-                    <p>Advanced Troubleshooting (1–2 Hours) — $175</p>
-                    <p>Full System Diagnosis & Repair — $250+</p>
-                    <p>Device Setup & Configuration — $75 per device</p>
-                    <p>Wi-Fi & Streaming Issues Fix — $125</p>
-                    <p>Home AV Optimization & Calibration — $150</p>
+                <button class="price-btn" onclick="togglePrice('tech-fix-prices')">Prices</button>
+                <div id="tech-fix-prices" class="price-dropdown">
+                    <p>Basic Troubleshooting (Up to 1 Hour) – $100</p>
+                    <p>Advanced Troubleshooting (1–2 Hours) – $175</p>
+                    <p>Full System Diagnosis & Repair – $250+</p>
+                    <p>Device Setup & Configuration – $75 per device</p>
+                    <p>Wi-Fi & Streaming Issues Fix – $125</p>
+                    <p>Home AV Optimization & Calibration – $150</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- About Me Section -->
-    <section class="about">
-        <h2>About Me</h2>
+    <div class="section">
+        <h2 class="section-title">About Me</h2>
         <button class="more-btn" onclick="toggleAbout()">More</button>
-
-        <div id="about-content" class="hidden">
-            <img src="static/images/Aboutme.png" class="about-image">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert...</p>
+        <div id="about" class="dropdown-content">
+            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting...</p>
             <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
             <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
             <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
+            <img src="static/images/Aboutme.png" class="about-image">
         </div>
-    </section>
+    </div>
 
     <script src="static/script.js"></script>
 </body>
