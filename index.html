@@ -16,12 +16,13 @@
 
     <style>
         /* Global Styles */
-        body {
+        html, body {
             margin: 0;
+            height: 100%;
             font-family: 'Baloo 2', sans-serif;
             text-align: center;
             background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
-            min-height: 100vh;
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -78,6 +79,11 @@
             color: white;
             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
             margin-bottom: 2px;
+        }
+
+        /* Services, Contact, About Me - Closer Spacing */
+        .section {
+            margin-top: 10px;
         }
 
         /* Services Section */
@@ -148,24 +154,5 @@
             <img src="static/images/aboutme.png" class="about-image" alt="About Me Image">
         </div>
     </div>
-
-    <script>
-        window.addEventListener('scroll', function () {
-            let welcome = document.getElementById('scroll-welcome');
-            let logo = document.getElementById('scroll-logo');
-            let text = document.getElementById('scroll-text');
-            let scrollPosition = window.scrollY;
-            
-            if (scrollPosition > 50) {
-                welcome.classList.add('scroll-effect');
-                logo.classList.add('scroll-effect');
-                text.classList.add('scroll-effect');
-            } else {
-                welcome.classList.remove('scroll-effect');
-                logo.classList.remove('scroll-effect');
-                text.classList.remove('scroll-effect');
-            }
-        });
-    </script>
 </body>
 </html>
