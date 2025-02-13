@@ -111,14 +111,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 100px; /* Group is lower on the page */
-      gap: 0; /* No extra gap between elements */
+      padding-top: 40px; /* Lower the group */
+      gap: 0; /* No extra space between items */
     }
     .welcome {
       font-size: 4.2em;
       font-weight: 800;
       margin: 0;
-      /* Added top shadow (negative Y-offset) and bottom shadow */
+      /* Added a stronger top and bottom shadow */
       text-shadow: 0 -2px 4px rgba(0, 0, 0, 0.9), 0 4px 6px rgba(0, 0, 0, 0.9);
       transition: transform 0.3s ease;
     }
@@ -291,7 +291,7 @@
   </style>
 </head>
 <body>
-  <!-- CORNER SPEAKER IMAGES (with onClick for pulse animation) -->
+  <!-- CORNER SPEAKER IMAGES -->
   <img src="static/images/speakerpic.png" 
        class="corner-image left" 
        alt="Speaker Top Left" 
