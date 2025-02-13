@@ -29,20 +29,19 @@
       width: 100%;
       min-height: 100vh;
       font-family: 'Baloo 2', sans-serif;
-      color: white; /* Default font color */
-      background-color: black; /* Black background behind gradient to avoid white overscroll */
-      overflow-x: hidden; /* Prevent horizontal scroll & white background on overscroll */
-      overscroll-behavior: none; /* Helps reduce 'bounce' showing white in some browsers */
+      color: white;
+      background-color: black;
+      overflow-x: hidden;
+      overscroll-behavior: none;
     }
     body {
       background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover;
-      animation: fadeInUp 1.5s ease-out; /* Fade-in animation */
+      animation: fadeInUp 1.5s ease-out;
     }
 
-    /* FADE-IN-UP ANIMATION */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -54,11 +53,27 @@
       }
     }
 
+    /* GLOW EFFECT FOR THE LOGO */
+    @keyframes logoGlow {
+      0% {
+        filter: drop-shadow(0 0 10px #fff);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #fff);
+      }
+      100% {
+        filter: drop-shadow(0 0 10px #fff);
+      }
+    }
+    .logo.glow-effect {
+      animation: logoGlow 3s ease-out;
+    }
+
     /* CORNER SPEAKER IMAGES */
     .corner-image {
       position: fixed;
       top: 10px;
-      width: 90px; /* Bigger speakers */
+      width: 90px;
       height: auto;
       z-index: 1000;
     }
@@ -75,26 +90,25 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding-top: 180px; /* Move “Welcome To” down further */
+      padding-top: 180px; /* Adjust as needed */
     }
     .welcome {
-      font-size: 4em; /* Slightly bigger “Welcome To” */
-      margin-bottom: 0.3em;
+      font-size: 4.2em; /* Slightly bigger "Welcome To" */
+      margin-bottom: 0.1em;
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
     .logo {
-      width: 300px; /* Bigger OG Sound logo */
-      max-width: 80%;
-      margin: 10px 0;
+      width: 350px; /* Bigger OG Sound logo */
+      max-width: 90%;
+      margin: 0.1em 0;
       transition: transform 0.3s ease;
     }
     .highlight-text {
-      font-size: 4em; /* Match “Welcome To” font size and style */
-      text-align: center;
-      margin: 0.3em 0;
+      font-size: 1.5em; /* Smaller tagline with same Baloo style */
+      margin: 0.1em 0;
       transition: transform 0.3s ease;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Match shadow as well */
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
     }
 
     /* SECTIONS (Services, Contact, About Me) */
@@ -103,14 +117,14 @@
       max-width: 800px;
       margin: 10px auto;
       padding: 10px;
-      background-color: rgba(0, 0, 0, 0.3); /* Light transparent black container */
+      background-color: rgba(0, 0, 0, 0.3);
       border-radius: 8px;
     }
     .section-title {
-      font-size: 2em; /* Bigger section titles */
+      font-size: 2em;
       margin-bottom: 10px;
       display: inline-block;
-      border-bottom: 2px solid white; /* Single underline */
+      border-bottom: 2px solid white;
       padding-bottom: 5px;
     }
 
@@ -135,10 +149,10 @@
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.5s ease-out;
-      color: white; /* Ensure text is white */
+      color: white;
     }
     .dropdown-container.active {
-      max-height: 1000px; /* Large enough to reveal content */
+      max-height: 1000px;
     }
 
     /* INDIVIDUAL SERVICE DETAILS */
@@ -148,7 +162,7 @@
       transition: max-height 0.5s ease-out;
       text-align: left;
       margin: 5px 0;
-      color: white; /* Ensure text is white */
+      color: white;
     }
     .service-details.active {
       max-height: 500px;
@@ -170,7 +184,7 @@
     .price-btn {
       font-size: 0.8em;
       padding: 5px 10px;
-      background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+      background-color: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
       border-radius: 4px;
@@ -187,12 +201,12 @@
       font-size: 1em;
       line-height: 1.4em;
       margin: 0.5em auto;
-      max-width: 90%; /* narrower for phones */
+      max-width: 90%;
       text-align: left;
     }
     #about-container img.about-image {
       display: block;
-      margin: 10px auto; /* Center the image */
+      margin: 10px auto;
       width: 100%;
       max-width: 300px;
       height: auto;
@@ -204,13 +218,13 @@
         font-size: 3em;
       }
       .logo {
-        width: 220px;
+        width: 250px;
       }
       .hero {
         padding-top: 120px;
       }
       .highlight-text {
-        font-size: 3em;
+        font-size: 1.2em;
       }
       .corner-image {
         width: 70px;
@@ -316,7 +330,6 @@
     // Interactive scaling on scroll for hero texts
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      // Scale factor based on scroll, capped at 1.1
       const scaleFactor = 1 + Math.min(scrollY / 1000, 0.1);
 
       document.getElementById('scroll-welcome').style.transform = `scale(${scaleFactor})`;
