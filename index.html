@@ -19,75 +19,45 @@
         html, body {
             margin: 0;
             height: 100%;
+            width: 100%;
             font-family: 'Baloo 2', sans-serif;
             text-align: center;
-            background: black;
-            background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
-            background-attachment: fixed;
+            background: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             animation: fadeIn 1.5s ease-out;
         }
 
-        /* Speaker Images */
-        .speaker-container {
-            position: absolute;
-            width: 100%;
-            top: 10px;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-        .small-speaker {
-            width: 90px;
-            height: auto;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 0px 40px 0px;
-            position: relative;
-        }
-        .welcome {
-            font-size: 50px;
-            margin-top: 150px;
-            color: white;
-            text-shadow: 0px -10px 15px rgba(0, 0, 0, 0.8);
-            animation: fadeInUp 1.5s ease-out;
-            transition: transform 0.3s ease-out;
-        }
-        .logo {
-            max-width: 350px;
-            margin-top: -30px;
-            animation: glow 3s ease-in-out;
-            transition: transform 0.3s ease-out;
-        }
-        .highlight-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: white;
-            margin-top: -30px;
-            transition: transform 0.3s ease-out;
-        }
-        .scroll-effect {
-            transform: scale(1.05);
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-size: 32px;
-            color: white;
-            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-            margin-bottom: 2px;
+        /* Responsive Formatting */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px;
+            }
+            .welcome {
+                font-size: 40px;
+                margin-top: 100px;
+            }
+            .logo {
+                max-width: 280px;
+            }
+            .highlight-text {
+                font-size: 18px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .service-item {
+                font-size: 20px;
+            }
         }
 
         /* Services Section */
         .service-item {
             font-size: 24px;
             font-weight: bold;
-            color: white;
-            margin-top: 2px;
+            color: black;
+            margin-top: 10px;
         }
         .price-btn {
             background-color: rgba(0, 0, 0, 0.5);
@@ -98,26 +68,20 @@
             border-radius: 5px;
             transition: background-color 0.3s;
             font-size: 14px;
-            margin-top: 2px;
+            margin-top: 5px;
         }
         .dropdown-content {
             display: none;
             padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.05);
             border-radius: 10px;
-            margin-top: 2px;
-            color: white;
+            margin-top: 10px;
+            color: black;
             animation: slideDown 0.5s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Speaker Images Positioned in Upper Corners -->
-    <div class="speaker-container">
-        <img src="static/images/speakerpic.png" class="small-speaker" style="position: absolute; left: 10px;" alt="Speaker">
-        <img src="static/images/speakerpic.png" class="small-speaker" style="position: absolute; right: 10px;" alt="Speaker">
-    </div>
-
     <!-- Hero Section -->
     <div class="hero fade-in">
         <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
@@ -130,9 +94,12 @@
         <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleDropdown('services')">More</button>
         <div id="services" class="dropdown-content">
-            <p>Wall Mount - Starting at $150</p>
-            <p>Surround Sound Speaker Setup - Starting at $200</p>
-            <p>Troubleshooting - Starting at $100</p>
+            <div class="service-item">Wall Mount <button class="price-btn" onclick="toggleDropdown('wall-mount')">Price</button></div>
+            <div id="wall-mount" class="dropdown-content">Basic Mount - $150<br>Full-Motion - $250<br>Over Fireplace - $350+<br>In-Wall Cable - $100<br>Soundbar Mounting - $50</div>
+            <div class="service-item">Surround Sound Speaker Setup <button class="price-btn" onclick="toggleDropdown('surround-sound')">Price</button></div>
+            <div id="surround-sound" class="dropdown-content">5.1 Setup - $200<br>7.1 Setup - $300<br>Dolby Atmos - $400+<br>Wall/Ceiling Mount - $75 per speaker<br>Wire Concealment - $150 per room</div>
+            <div class="service-item">Troubleshooting <button class="price-btn" onclick="toggleDropdown('troubleshooting')">Price</button></div>
+            <div id="troubleshooting" class="dropdown-content">Basic - $100<br>Advanced - $175<br>Full System - $250+<br>Device Setup - $75 per device<br>Wi-Fi Fix - $125<br>Home AV Calibration - $150</div>
         </div>
     </div>
 
