@@ -6,10 +6,13 @@
   <title>O.G Sound</title>
 
   <!-- Load Baloo 2 Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- External CSS -->
-  <link rel="stylesheet" type="text/css" href="static/styles.css">
+  <link rel="stylesheet" type="text/css" href="static/styles.css" />
 
   <!-- External JavaScript -->
   <script defer src="static/script.js"></script>
@@ -21,17 +24,25 @@
       margin: 0;
       padding: 0;
     }
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100vh;
       font-family: 'Baloo 2', sans-serif;
       color: white; /* Default font color */
-      background: linear-gradient(to bottom, black, #2b2300, #5a4c00) no-repeat center center;
-      background-size: cover;
+      background-color: black; /* Black background behind gradient to avoid white overscroll */
       overflow-x: hidden; /* Prevent horizontal scroll & white background on overscroll */
+      overscroll-behavior: none; /* Helps reduce 'bounce' showing white in some browsers */
+    }
+    body {
+      background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      animation: fadeInUp 1.5s ease-out; /* Fade-in animation */
     }
 
-    /* Fade-in and slight upward movement on load */
+    /* FADE-IN-UP ANIMATION */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -43,15 +54,11 @@
       }
     }
 
-    body {
-      animation: fadeInUp 1.5s ease-out;
-    }
-
     /* CORNER SPEAKER IMAGES */
     .corner-image {
       position: fixed;
       top: 10px;
-      width: 90px; /* Increased size */
+      width: 90px; /* Bigger speakers */
       height: auto;
       z-index: 1000;
     }
@@ -67,59 +74,44 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 150px; /* Move down further */
       text-align: center;
+      padding-top: 180px; /* Move “Welcome To” down further */
     }
-
     .welcome {
-      font-size: 3em; /* Bigger text */
+      font-size: 4em; /* Slightly bigger “Welcome To” */
       margin-bottom: 0.3em;
-      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
-
     .logo {
-      width: 250px; /* Bigger logo */
+      width: 300px; /* Bigger OG Sound logo */
       max-width: 80%;
       margin: 10px 0;
       transition: transform 0.3s ease;
     }
-
     .highlight-text {
-      font-size: 3em; /* Match size with welcome */
+      font-size: 4em; /* Match “Welcome To” font size and style */
       text-align: center;
       margin: 0.3em 0;
       transition: transform 0.3s ease;
-      /* White color is inherited from body */
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7); /* Match shadow as well */
     }
 
     /* SECTIONS (Services, Contact, About Me) */
     .section {
       width: 100%;
       max-width: 800px;
-      margin: 10px auto; /* Center horizontally */
-      padding: 5px 10px;
+      margin: 10px auto;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.3); /* Light transparent black container */
+      border-radius: 8px;
     }
-
     .section-title {
-      display: inline-block;
-      position: relative;
-      font-size: 1.8em;
+      font-size: 2em; /* Bigger section titles */
       margin-bottom: 10px;
-      cursor: default;
-      /* Add a shorter underline */
-    }
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 50%;
-      margin: 5px auto 0 auto;
-      border-bottom: 2px solid white;
-    }
-    /* Cool hover effect for section titles */
-    .section-title:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
+      display: inline-block;
+      border-bottom: 2px solid white; /* Single underline */
+      padding-bottom: 5px;
     }
 
     /* MORE BUTTON */
@@ -146,7 +138,7 @@
       color: white; /* Ensure text is white */
     }
     .dropdown-container.active {
-      max-height: 1000px; /* large enough to reveal content */
+      max-height: 1000px; /* Large enough to reveal content */
     }
 
     /* INDIVIDUAL SERVICE DETAILS */
@@ -190,7 +182,7 @@
       background-color: rgba(0, 0, 0, 0.7);
     }
 
-    /* ABOUT ME TEXT */
+    /* ABOUT ME TEXT & IMAGE */
     #about-container p {
       font-size: 1em;
       line-height: 1.4em;
@@ -199,29 +191,32 @@
       text-align: left;
     }
     #about-container img.about-image {
+      display: block;
+      margin: 10px auto; /* Center the image */
       width: 100%;
       max-width: 300px;
       height: auto;
-      margin-top: 10px;
     }
 
     /* RESPONSIVE ADJUSTMENTS FOR MOBILE */
     @media (max-width: 600px) {
-      .welcome,
-      .highlight-text {
-        font-size: 2em; /* Scale down for phone */
-      }
-      .hero {
-        padding-top: 100px; /* adjust for phone */
+      .welcome {
+        font-size: 3em;
       }
       .logo {
-        width: 180px; /* slightly smaller on phone */
+        width: 220px;
+      }
+      .hero {
+        padding-top: 120px;
+      }
+      .highlight-text {
+        font-size: 3em;
       }
       .corner-image {
-        width: 70px; /* corner speakers slightly smaller on phone */
+        width: 70px;
       }
       .section-title {
-        font-size: 1.5em;
+        font-size: 1.7em;
       }
       #about-container p {
         font-size: 0.95em;
