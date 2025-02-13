@@ -1,158 +1,86 @@
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: 'Baloo 2', sans-serif;
-    text-align: center;
-    background: linear-gradient(to bottom, black, #1a1a1a, #252525, #303030, #3b3b3b, #454545, #505050, #5a5a5a);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fadeIn 1.5s ease-out;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O.G Sound</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <script defer src="static/script.js"></script>
+</head>
+<body>
 
-/* Speaker Images (Positioned in corners) */
-.speaker-container {
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    left: 0;
-    right: 0;
-}
+    <!-- Speaker Images Positioned in Upper Corners -->
+    <div class="speaker-container">
+        <img src="static/images/speakerpic.png" class="speaker small-speaker left-corner" alt="Speaker">
+        <img src="static/images/speakerpic.png" class="speaker small-speaker right-corner" alt="Speaker">
+    </div>
 
-.small-speaker {
-    width: 60px; /* Adjusted size to be smaller */
-    height: auto;
-}
+    <!-- Hero Section with Glow Effect -->
+    <div class="hero fade-in">
+        <h1 class="welcome">Welcome To</h1>
+        <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo">
+        <p class="highlight-text larger-text">I offer top-quality home AV installations at the best prices.</p>
+    </div>
 
-/* Hero Section */
-.hero {
-    padding: 40px;
-}
+    <!-- Services Section -->
+    <div class="section">
+        <h2 class="section-title">Services</h2>
+        <button class="more-btn" onclick="toggleDropdown('services', this)">More</button>
+        <div id="services" class="dropdown-content">
+            <div class="service-item">
+                <p>Wall Mount TV</p>
+                <button class="price-btn" onclick="toggleDropdown('wall-mount-prices')">Prices</button>
+                <div id="wall-mount-prices" class="price-dropdown animated-dropdown">
+                    <p>Basic Mount (Fixed/Tilting, up to 65") – $150</p>
+                    <p>Full-Motion Mount (Any size) – $250</p>
+                    <p>Over Fireplace/Brick Wall – $350+</p>
+                    <p>In-Wall Cable Management – $100</p>
+                    <p>Soundbar Mounting – $50</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <p>Home Tech Fix</p>
+                <button class="price-btn" onclick="toggleDropdown('home-tech-prices')">Prices</button>
+                <div id="home-tech-prices" class="price-dropdown animated-dropdown">
+                    <p>Basic Troubleshooting (Up to 1 Hour) – $100</p>
+                    <p>Advanced Troubleshooting (1–2 Hours) – $175</p>
+                    <p>Full System Diagnosis & Repair – $250+</p>
+                    <p>Device Setup & Configuration – $75 per device</p>
+                    <p>Wi-Fi & Streaming Issues Fix – $125</p>
+                    <p>Home AV Optimization & Calibration – $150</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <p>Surround Sound Speaker Setup</p>
+                <button class="price-btn" onclick="toggleDropdown('surround-prices')">Prices</button>
+                <div id="surround-prices" class="price-dropdown animated-dropdown">
+                    <p>5.1 Home Theater Setup – $200</p>
+                    <p>7.1 Home Theater Setup – $300</p>
+                    <p>Dolby Atmos Setup – $400+</p>
+                    <p>Wall/Ceiling Speaker Mounting – $75 per speaker</p>
+                    <p>Wire Concealment – $150 per room</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-.welcome {
-    font-size: 48px;
-    margin-bottom: 5px;
-    color: white;
-    animation: fadeInUp 1.5s ease-out;
-}
+    <!-- About Me Section -->
+    <div class="section">
+        <h2 class="section-title">About Me</h2>
+        <button class="more-btn" onclick="toggleDropdown('about', this)">More</button>
+        <div id="about" class="dropdown-content animated-dropdown">
+            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting...</p>
+            <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
+            <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
+            <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
+            <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image">
+        </div>
+    </div>
 
-.logo {
-    max-width: 260px;
-    animation: glow 3s ease-in-out;
-}
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 O.G Sound | All Rights Reserved</p>
+    </footer>
 
-/* Enlarged Highlight Text */
-.highlight-text {
-    font-size: 26px; /* Increased size */
-    font-weight: bold;
-    color: white;
-    margin-top: 10px;
-}
-
-/* Glow Effect for Logo */
-@keyframes glow {
-    0% { filter: brightness(2); }
-    50% { filter: brightness(3); }
-    100% { filter: brightness(1.2); }
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Buttons */
-.more-btn, .price-btn {
-    background: rgba(0, 0, 0, 0.6);
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease-in-out;
-}
-
-.more-btn:hover, .price-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-/* Hide the More button after clicking */
-.more-btn.hidden {
-    display: none;
-}
-
-/* Price Button Styling */
-.price-btn {
-    background: rgba(0, 0, 0, 0.5);
-    margin-left: 15px;
-}
-
-/* Dropdown Animations */
-.animated-dropdown {
-    animation: slideDown 0.5s ease-out forwards;
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Sections */
-.section {
-    margin-top: 40px;
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.section-title {
-    font-size: 28px;
-    border-bottom: 3px solid white;
-    padding-bottom: 10px;
-    color: white;
-}
-
-/* Dropdown Styling */
-.dropdown-content {
-    display: none;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin-top: 10px;
-    color: white;
-}
-
-/* Show Class (for dropdowns) */
-.show {
-    display: flex !important;
-    flex-direction: column;
-    animation: slideDown 0.5s ease-out forwards;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .welcome {
-        font-size: 36px;
-    }
-
-    .section {
-        width: 95%;
-    }
-
-    .more-btn, .price-btn {
-        font-size: 16px;
-        padding: 10px 25px;
-    }
-}
+</body>
+</html>
