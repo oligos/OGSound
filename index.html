@@ -24,8 +24,7 @@
       margin: 0;
       padding: 0;
     }
-    html,
-    body {
+    html, body {
       width: 100%;
       min-height: 100vh;
       font-family: 'Baloo 2', sans-serif;
@@ -33,6 +32,7 @@
       background-color: black;
       overflow-x: hidden;
       overscroll-behavior: none;
+      text-align: center; /* Center all text globally */
     }
     body {
       background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
@@ -53,7 +53,7 @@
       }
     }
 
-    /* GLOW EFFECT FOR THE LOGO */
+    /* GLOW EFFECT FOR THE LOGO (first 3 seconds) */
     @keyframes logoGlow {
       0% {
         filter: drop-shadow(0 0 10px #fff);
@@ -89,26 +89,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
       padding-top: 180px; /* Adjust as needed */
     }
     .welcome {
-      font-size: 4.2em; /* Slightly bigger "Welcome To" */
-      margin-bottom: 0.1em;
+      font-size: 4.2em;  /* Slightly bigger “Welcome To” */
+      font-weight: 800;  /* Thick Baloo style */
+      margin-bottom: 0.15em;
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
     .logo {
-      width: 350px; /* Bigger OG Sound logo */
+      width: 400px;       /* Bigger OG Sound logo */
       max-width: 90%;
-      margin: 0.1em 0;
+      margin: 0.15em 0;   /* Reduce vertical spacing */
       transition: transform 0.3s ease;
     }
     .highlight-text {
-      font-size: 1.5em; /* Smaller tagline with same Baloo style */
-      margin: 0.1em 0;
-      transition: transform 0.3s ease;
+      font-size: 1.5em;   /* Smaller tagline */
+      font-weight: 800;   /* Same thick Baloo style as “Welcome To” */
+      margin-top: 0.15em; /* Reduce vertical spacing */
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+      transition: transform 0.3s ease;
     }
 
     /* SECTIONS (Services, Contact, About Me) */
@@ -150,6 +151,7 @@
       max-height: 0;
       transition: max-height 0.5s ease-out;
       color: white;
+      margin-top: 5px;
     }
     .dropdown-container.active {
       max-height: 1000px;
@@ -160,8 +162,7 @@
       overflow: hidden;
       max-height: 0;
       transition: max-height 0.5s ease-out;
-      text-align: left;
-      margin: 5px 0;
+      margin: 5px auto;
       color: white;
     }
     .service-details.active {
@@ -176,11 +177,10 @@
     }
     .service-item {
       width: 100%;
-      text-align: center;
       margin: 5px 0;
     }
 
-    /* PRICE BUTTON */
+    /* PRICE BUTTON + YELLOW LINE */
     .price-btn {
       font-size: 0.8em;
       padding: 5px 10px;
@@ -191,9 +191,22 @@
       cursor: pointer;
       margin-left: 10px;
       transition: background-color 0.3s ease;
+      position: relative; /* For the line below */
+      margin-bottom: 16px; /* Extra space for the line */
+      display: inline-block;
     }
     .price-btn:hover {
       background-color: rgba(0, 0, 0, 0.7);
+    }
+    .price-btn::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -5px;
+      width: 30px;
+      height: 2px;
+      background-color: #FFD700;  /* or pick the exact shade from your speaker image */
     }
 
     /* ABOUT ME TEXT & IMAGE */
@@ -202,7 +215,6 @@
       line-height: 1.4em;
       margin: 0.5em auto;
       max-width: 90%;
-      text-align: left;
     }
     #about-container img.about-image {
       display: block;
@@ -218,7 +230,7 @@
         font-size: 3em;
       }
       .logo {
-        width: 250px;
+        width: 280px;
       }
       .hero {
         padding-top: 120px;
@@ -339,3 +351,4 @@
   </script>
 </body>
 </html>
+
