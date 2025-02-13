@@ -45,25 +45,30 @@
 
         /* Hero Section */
         .hero {
-            padding: 40px;
+            padding: 60px 40px 20px;
             position: relative;
         }
         .welcome {
             font-size: 48px;
-            margin-bottom: 5px;
+            margin-top: 20px;
             color: white;
             animation: fadeInUp 1.5s ease-out;
         }
         .logo {
-            max-width: 300px;
-            margin-bottom: 10px;
+            max-width: 350px; /* Increased size */
+            margin-bottom: 20px;
             animation: glow 3s ease-in-out;
         }
         .highlight-text {
             font-size: 36px;
             font-weight: bold;
             color: white;
-            margin-top: 10px;
+            margin-top: -10px; /* Brought higher */
+        }
+
+        /* Adjusted Sections */
+        .section {
+            margin-top: -30px; /* Bringing sections higher */
         }
 
         /* Glow Effect for Logo */
@@ -150,7 +155,11 @@
     <script>
         function toggleDropdown(id) {
             const element = document.getElementById(id);
-            element.classList.toggle("show");
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
         }
     </script>
 
