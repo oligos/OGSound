@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap">
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
 
     <!-- Top Speaker Images -->
-    <img src="static/images/speakerpic.png" class="speaker top-left" alt="Speaker">
-    <img src="static/images/speakerpic.png" class="speaker top-right" alt="Speaker">
+    <img src="static/images/speakerpic.png" class="speaker top-left small-speaker" alt="Speaker">
+    <img src="static/images/speakerpic.png" class="speaker top-right small-speaker" alt="Speaker">
 
     <!-- Hero Section -->
     <div class="hero">
         <h1 class="welcome">Welcome To</h1>
-        <img src="static/images/ogsoundlogo.png" class="logo" alt="O.G Sound Logo">
+        <img src="static/images/logo.png" class="logo" alt="O.G Sound Logo">
         <p class="highlight-text">I offer top-quality home AV installations at the best prices.</p>
     </div>
 
@@ -35,34 +36,6 @@
                     <p>Soundbar Mounting – $50</p>
                 </div>
             </div>
-            <hr>
-
-            <div class="service-item">
-                <p>Surround Sound Speaker Setup</p>
-                <button class="price-btn" onclick="toggleDropdown('surround-prices')">Prices</button>
-                <div id="surround-prices" class="price-dropdown">
-                    <p>5.1 Home Theater Setup – $200</p>
-                    <p>7.1 Home Theater Setup – $300</p>
-                    <p>Dolby Atmos Setup – $400+</p>
-                    <p>Wall/Ceiling Speaker Mounting – $75 per speaker</p>
-                    <p>Wire Concealment – $150 per room</p>
-                    <p>These prices do not include speaker and amplifier prices.</p>
-                </div>
-            </div>
-            <hr>
-
-            <div class="service-item">
-                <p>Home Tech Fix</p>
-                <button class="price-btn" onclick="toggleDropdown('tech-fix-prices')">Prices</button>
-                <div id="tech-fix-prices" class="price-dropdown">
-                    <p>Basic Troubleshooting (Up to 1 Hour) – $100</p>
-                    <p>Advanced Troubleshooting (1–2 Hours) – $175</p>
-                    <p>Full System Diagnosis & Repair – $250+</p>
-                    <p>Device Setup & Configuration – $75 per device</p>
-                    <p>Wi-Fi & Streaming Issues Fix – $125</p>
-                    <p>Home AV Optimization & Calibration – $150</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -75,10 +48,17 @@
             <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
             <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
             <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
-            <img src="static/images/Aboutme.png" class="about-image" alt="About Me Image">
+            <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image">
         </div>
     </div>
 
-    <script src="static/script.js"></script>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 O.G Sound | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript at the end of <body> for better performance -->
+    <script src="static/script.js" defer></script>
+
 </body>
 </html>
