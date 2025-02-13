@@ -35,15 +35,17 @@
         }
         .welcome {
             font-size: 50px;
-            margin-top: 30px;
+            margin-top: 20px;
             color: white;
             text-shadow: 0px -5px 10px rgba(0, 0, 0, 0.7);
             animation: fadeInUp 1.5s ease-out;
+            transition: transform 0.3s ease-out;
         }
         .logo {
             max-width: 350px;
             margin-top: -10px;
             animation: glow 3s ease-in-out;
+            transition: transform 0.3s ease-out;
         }
         .highlight-text {
             font-size: 22px;
@@ -56,28 +58,22 @@
             transform: scale(1.05);
         }
 
-        /* Service Section Styling */
-        .service-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
+        /* Section Titles */
+        .section-title {
+            font-size: 32px;
             color: white;
-            margin-top: 10px;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
         }
-        .price-btn {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+
+        /* About Me Section */
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
-        .price-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+
+        /* Drop-down animations */
         .dropdown-content {
             display: none;
             padding: 10px;
@@ -96,7 +92,7 @@
 <body>
     <!-- Hero Section -->
     <div class="hero fade-in">
-        <h1 class="welcome">Welcome To</h1>
+        <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
         <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo" id="scroll-logo">
         <p class="highlight-text" id="scroll-text">I offer top-quality home AV installations at the best prices.</p>
     </div>
@@ -115,6 +111,23 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <div class="section">
+        <h2 class="section-title">Contact</h2>
+        <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
+        <div id="contact" class="dropdown-content">Email: contact@ogsound.ca</div>
+    </div>
+
+    <!-- About Me Section -->
+    <div class="section">
+        <h2 class="section-title">About Me</h2>
+        <button class="more-btn" onclick="toggleDropdown('about')">More</button>
+        <div id="about" class="dropdown-content">
+            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
+            <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image" loading="lazy">
+        </div>
+    </div>
+
     <script>
         function toggleDropdown(id) {
             let element = document.getElementById(id);
@@ -128,13 +141,16 @@
         window.addEventListener('scroll', function () {
             let highlightText = document.getElementById('scroll-text');
             let logo = document.getElementById('scroll-logo');
+            let welcome = document.getElementById('scroll-welcome');
             let scrollPosition = window.scrollY;
             if (scrollPosition > 100) {
                 highlightText.classList.add('scroll-effect');
                 logo.classList.add('scroll-effect');
+                welcome.classList.add('scroll-effect');
             } else {
                 highlightText.classList.remove('scroll-effect');
                 logo.classList.remove('scroll-effect');
+                welcome.classList.remove('scroll-effect');
             }
         });
     </script>
