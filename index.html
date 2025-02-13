@@ -45,12 +45,12 @@
 
         /* Hero Section */
         .hero {
-            padding: 60px 40px 20px;
+            padding: 80px 40px 20px; /* Lowered Welcome text */
             position: relative;
         }
         .welcome {
             font-size: 48px;
-            margin-top: 20px;
+            margin-top: 50px;
             color: white;
             animation: fadeInUp 1.5s ease-out;
         }
@@ -60,15 +60,38 @@
             animation: glow 3s ease-in-out;
         }
         .highlight-text {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: bold;
             color: white;
-            margin-top: -10px; /* Brought higher */
+            margin-top: -20px; /* Brought higher */
         }
 
         /* Adjusted Sections */
         .section {
-            margin-top: -30px; /* Bringing sections higher */
+            margin-top: -50px; /* Bringing sections higher */
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: white;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); /* Glow Effect */
+        }
+
+        /* Services Styling */
+        .service-item {
+            font-size: 24px; /* Increased size */
+            font-weight: bold;
+            color: white;
+        }
+        .price-btn {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
         /* Glow Effect for Logo */
@@ -128,11 +151,11 @@
         <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleDropdown('services')">More</button>
         <div id="services" class="dropdown-content">
-            <p>Wall Mount TV <button onclick="toggleDropdown('tv-prices')">Prices</button></p>
+            <p class="service-item">Wall Mount TV <button class="price-btn" onclick="toggleDropdown('tv-prices')">Prices</button></p>
             <div id="tv-prices" class="dropdown-content">Basic Mount – $150, Full-Motion – $250, Over Fireplace – $350+</div>
-            <p>Home Tech Fix <button onclick="toggleDropdown('tech-prices')">Prices</button></p>
+            <p class="service-item">Home Tech Fix <button class="price-btn" onclick="toggleDropdown('tech-prices')">Prices</button></p>
             <div id="tech-prices" class="dropdown-content">Basic – $100, Advanced – $175, Full System – $250+</div>
-            <p>Surround Sound Setup <button onclick="toggleDropdown('sound-prices')">Prices</button></p>
+            <p class="service-item">Surround Sound Setup <button class="price-btn" onclick="toggleDropdown('sound-prices')">Prices</button></p>
             <div id="sound-prices" class="dropdown-content">5.1 Setup – $200, 7.1 Setup – $300, Atmos – $400+</div>
         </div>
     </div>
@@ -142,24 +165,14 @@
         <h2 class="section-title">About Me</h2>
         <button class="more-btn" onclick="toggleDropdown('about')">More</button>
         <div id="about" class="dropdown-content">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting. I provide top-quality services at the best prices, ensuring seamless installations and optimal performance.</p>
+            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
             <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image" loading="lazy">
         </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2025 O.G Sound | All Rights Reserved</p>
-    </footer>
-
     <script>
         function toggleDropdown(id) {
-            const element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
+            document.getElementById(id).classList.toggle("show");
         }
     </script>
 
