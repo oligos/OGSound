@@ -21,7 +21,7 @@
             height: 100%;
             font-family: 'Baloo 2', sans-serif;
             text-align: center;
-            background-color: black;
+            background: black;
             background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
             background-attachment: fixed;
             display: flex;
@@ -80,6 +80,15 @@
             color: white;
             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
             margin-bottom: 2px;
+        }
+
+        /* About Me Styling */
+        .about-text {
+            font-size: 18px;
+            color: white;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
         }
 
         /* Services Section */
@@ -146,15 +155,14 @@
         <h2 class="section-title">About Me</h2>
         <button class="more-btn" onclick="toggleDropdown('about')">More</button>
         <div id="about" class="dropdown-content">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <p><strong>Why choose me?</strong></p>
-            <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
-            <p>✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
-            <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
-            <p>📍 Proudly serving Vancouver and surrounding areas.</p>
+            <p class="about-text">Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
+            <p class="about-text"><strong>Why choose me?</strong></p>
+            <p class="about-text">✅ Best prices in Vancouver – Quality work without the premium price tag</p>
+            <p class="about-text">✅ Fast, friendly, and professional service – I treat every setup like it’s my own home</p>
+            <p class="about-text">✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues so you don’t have to</p>
+            <p class="about-text">📍 Proudly serving Vancouver and surrounding areas.</p>
             <img src="static/images/aboutme.png" class="about-image" alt="About Me Image">
         </div>
     </div>
 </body>
 </html>
-
