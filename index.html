@@ -45,12 +45,12 @@
 
         /* Hero Section */
         .hero {
-            padding: 60px 40px 10px;
+            padding: 80px 40px 10px;
             position: relative;
         }
         .welcome {
             font-size: 48px;
-            margin-top: 50px;
+            margin-top: 80px;
             color: white;
             animation: fadeInUp 1.5s ease-out;
         }
@@ -61,15 +61,17 @@
             animation: glow 3s ease-in-out;
         }
         .highlight-text {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
             color: white;
-            margin-top: -30px;
+            margin-top: -40px;
+            opacity: 0;
+            animation: fadeInDelayed 2s ease-out forwards 2s;
         }
 
         /* Adjusted Sections */
         .section {
-            margin-top: -50px;
+            margin-top: -60px;
         }
 
         .section-title {
@@ -78,47 +80,20 @@
             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
         }
 
-        /* Services Styling */
-        .service-item {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-        }
-        .price-btn {
-            font-size: 20px;
-            font-weight: bold;
-            color: black;
-            background-color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 5px;
+        /* Fade-in Delayed Effect */
+        @keyframes fadeInDelayed {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Glow Effect for Logo */
-        @keyframes glow {
-            0% { filter: brightness(2); }
-            50% { filter: brightness(3); }
-            100% { filter: brightness(1.2); }
+        /* Scroll Animation for Highlight Text */
+        .highlight-text {
+            transition: transform 0.5s ease-out, font-size 0.5s ease-out;
         }
 
-        /* Dropdown Animations */
-        .dropdown-content {
-            display: none;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin-top: 10px;
-            color: white;
-        }
-        .show {
-            display: flex !important;
-            flex-direction: column;
-            animation: slideDown 0.5s ease-out forwards;
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .scroll-effect {
+            font-size: 28px !important;
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -134,7 +109,7 @@
     <div class="hero fade-in">
         <h1 class="welcome">Welcome To</h1>
         <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo">
-        <p class="highlight-text">I offer top-quality home AV installations at the best prices.</p>
+        <p class="highlight-text" id="scroll-text">I offer top-quality home AV installations at the best prices.</p>
     </div>
 
     <!-- Services Section -->
@@ -148,7 +123,7 @@
     <div class="section">
         <h2 class="section-title">Contact</h2>
         <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
-        <div id="contact" class="dropdown-content">[Contact details here]</div>
+        <div id="contact" class="dropdown-content">Email: contact@ogsound.ca</div>
     </div>
 
     <!-- About Me Section -->
@@ -165,6 +140,16 @@
         function toggleDropdown(id) {
             document.getElementById(id).classList.toggle("show");
         }
+
+        window.addEventListener('scroll', function () {
+            let highlightText = document.getElementById('scroll-text');
+            let scrollPosition = window.scrollY;
+            if (scrollPosition > 100) {
+                highlightText.classList.add('scroll-effect');
+            } else {
+                highlightText.classList.remove('scroll-effect');
+            }
+        });
     </script>
 
 </body>
