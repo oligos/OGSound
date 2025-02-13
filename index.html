@@ -73,7 +73,30 @@
             margin: 0 auto;
         }
 
-        /* Drop-down animations */
+        /* Services Section */
+        .service-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+        .price-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+        .price-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
         .dropdown-content {
             display: none;
             padding: 10px;
@@ -111,48 +134,21 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <div class="section">
-        <h2 class="section-title">Contact</h2>
-        <button class="more-btn" onclick="toggleDropdown('contact')">More</button>
-        <div id="contact" class="dropdown-content">Email: contact@ogsound.ca</div>
-    </div>
-
     <!-- About Me Section -->
     <div class="section">
         <h2 class="section-title">About Me</h2>
         <button class="more-btn" onclick="toggleDropdown('about')">More</button>
         <div id="about" class="dropdown-content">
             <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image" loading="lazy">
+            <img src="static/images/aboutme.png" class="about-image" alt="About Me Image" loading="lazy">
         </div>
     </div>
 
     <script>
         function toggleDropdown(id) {
             let element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
+            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
         }
-
-        window.addEventListener('scroll', function () {
-            let highlightText = document.getElementById('scroll-text');
-            let logo = document.getElementById('scroll-logo');
-            let welcome = document.getElementById('scroll-welcome');
-            let scrollPosition = window.scrollY;
-            if (scrollPosition > 100) {
-                highlightText.classList.add('scroll-effect');
-                logo.classList.add('scroll-effect');
-                welcome.classList.add('scroll-effect');
-            } else {
-                highlightText.classList.remove('scroll-effect');
-                logo.classList.remove('scroll-effect');
-                welcome.classList.remove('scroll-effect');
-            }
-        });
     </script>
 </body>
 </html>
