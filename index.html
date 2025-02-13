@@ -19,65 +19,14 @@
         html, body {
             margin: 0;
             height: 100%;
-            width: 100%;
             font-family: 'Baloo 2', sans-serif;
             text-align: center;
-            background: white;
+            background: linear-gradient(to bottom, black, #2b2300, #5a4c00);
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             align-items: center;
             animation: fadeIn 1.5s ease-out;
-        }
-
-        /* Responsive Formatting */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 20px;
-            }
-            .welcome {
-                font-size: 40px;
-                margin-top: 100px;
-            }
-            .logo {
-                max-width: 280px;
-            }
-            .highlight-text {
-                font-size: 18px;
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .service-item {
-                font-size: 20px;
-            }
-        }
-
-        /* Services Section */
-        .service-item {
-            font-size: 24px;
-            font-weight: bold;
-            color: black;
-            margin-top: 10px;
-        }
-        .price-btn {
-            background-color: black;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-size: 14px;
-            margin-top: 5px;
-        }
-        .dropdown-content {
-            display: none;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            margin-top: 10px;
-            color: black;
-            animation: slideDown 0.5s ease-out forwards;
         }
     </style>
 </head>
