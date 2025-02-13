@@ -28,6 +28,20 @@
             animation: fadeIn 1.5s ease-out;
         }
 
+        /* Speaker Images */
+        .speaker-container {
+            position: absolute;
+            width: 100%;
+            top: 10px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .small-speaker {
+            width: 90px;
+            height: auto;
+        }
+
         /* Hero Section */
         .hero {
             padding: 60px 40px 10px;
@@ -76,12 +90,12 @@
         /* Services Section */
         .service-item {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             font-size: 24px;
             font-weight: bold;
             color: white;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         .price-btn {
             background-color: rgba(0, 0, 0, 0.5);
@@ -91,8 +105,8 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
-            margin-left: 15px;
             font-size: 14px;
+            margin-top: 5px;
         }
         .price-btn:hover {
             background-color: rgba(0, 0, 0, 0.8);
@@ -113,6 +127,12 @@
     </style>
 </head>
 <body>
+    <!-- Speaker Images Positioned in Upper Corners -->
+    <div class="speaker-container">
+        <img src="static/images/speakerpic.png" class="small-speaker" alt="Speaker">
+        <img src="static/images/speakerpic.png" class="small-speaker" alt="Speaker">
+    </div>
+
     <!-- Hero Section -->
     <div class="hero fade-in">
         <h1 class="welcome" id="scroll-welcome">Welcome To</h1>
@@ -133,22 +153,5 @@
             <div id="troubleshooting" class="dropdown-content">Basic - $100<br>Advanced - $175<br>Full System - $250+<br>Device Setup - $75 per device<br>Wi-Fi Fix - $125<br>Home AV Calibration - $150</div>
         </div>
     </div>
-
-    <!-- About Me Section -->
-    <div class="section">
-        <h2 class="section-title">About Me</h2>
-        <button class="more-btn" onclick="toggleDropdown('about')">More</button>
-        <div id="about" class="dropdown-content">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-            <img src="static/images/aboutme.png" class="about-image" alt="About Me Image" loading="lazy">
-        </div>
-    </div>
-
-    <script>
-        function toggleDropdown(id) {
-            let element = document.getElementById(id);
-            element.style.display = (element.style.display === "none" || element.style.display === "") ? "block" : "none";
-        }
-    </script>
 </body>
 </html>
