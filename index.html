@@ -38,8 +38,9 @@
             padding: 10px;
         }
         .small-speaker {
-            width: 60px;
+            width: 80px; /* Increased size */
             height: auto;
+            filter: drop-shadow(0px 0px 10px white); /* White glow effect */
         }
 
         /* Hero Section */
@@ -55,6 +56,7 @@
         }
         .logo {
             max-width: 300px;
+            margin-bottom: 10px;
             animation: glow 3s ease-in-out;
         }
         .highlight-text {
@@ -62,21 +64,6 @@
             font-weight: bold;
             color: white;
             margin-top: 10px;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid white;
-            display: inline-block;
-            animation: typing 2s steps(50, end) forwards;
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Typewriting Effect */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
         }
 
         /* Glow Effect for Logo */
@@ -128,7 +115,7 @@
     <div class="hero fade-in">
         <h1 class="welcome">Welcome To</h1>
         <img src="static/images/logo.png" class="logo glow-effect" alt="O.G Sound Logo">
-        <p class="highlight-text larger-text">I offer top-quality home AV installations at the best prices.</p>
+        <p class="highlight-text">I offer top-quality home AV installations at the best prices.</p>
     </div>
 
     <!-- Services Section -->
@@ -136,7 +123,12 @@
         <h2 class="section-title">Services</h2>
         <button class="more-btn" onclick="toggleDropdown('services')">More</button>
         <div id="services" class="dropdown-content">
-            <p>Wall Mount TV, Home Tech Fix, Surround Sound Speaker Setup</p>
+            <p>Wall Mount TV <button onclick="toggleDropdown('tv-prices')">Prices</button></p>
+            <div id="tv-prices" class="dropdown-content">Basic Mount – $150, Full-Motion – $250, Over Fireplace – $350+</div>
+            <p>Home Tech Fix <button onclick="toggleDropdown('tech-prices')">Prices</button></p>
+            <div id="tech-prices" class="dropdown-content">Basic – $100, Advanced – $175, Full System – $250+</div>
+            <p>Surround Sound Setup <button onclick="toggleDropdown('sound-prices')">Prices</button></p>
+            <div id="sound-prices" class="dropdown-content">5.1 Setup – $200, 7.1 Setup – $300, Atmos – $400+</div>
         </div>
     </div>
 
@@ -145,7 +137,7 @@
         <h2 class="section-title">About Me</h2>
         <button class="more-btn" onclick="toggleDropdown('about')">More</button>
         <div id="about" class="dropdown-content">
-            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting...</p>
+            <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting. I provide top-quality services at the best prices, ensuring seamless installations and optimal performance.</p>
             <img src="static/images/AboutMe.png" class="about-image" alt="About Me Image" loading="lazy">
         </div>
     </div>
@@ -158,11 +150,7 @@
     <script>
         function toggleDropdown(id) {
             const element = document.getElementById(id);
-            if (element.style.display === "none" || element.style.display === "") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
+            element.classList.toggle("show");
         }
     </script>
 
