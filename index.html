@@ -4,229 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
-    
-    <!-- Import Baloo Font -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
-        /* Apply Baloo font to all text */
-        body, h1, h2, h3, h4, h5, h6, p, a, span, div, button {
-            font-family: 'Baloo 2', cursive !important;
-        }
-
-        /* Background Gradient - Fully Black to Almost Black Yellow */
         body {
-            background: linear-gradient(to bottom, black, #181500, #2a2200, #403300, #594700);
-            background-size: 300% 300%;
-            animation: gradientAnimation 10s ease infinite;
+            font-family: 'Baloo 2', cursive;
             margin: 0;
             padding: 0;
-            color: #fff;
-            text-align: center;
-            height: 100vh;
-        }
-
-        /* Dynamic Gradient Effect */
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Fade & Slide Animation */
-        @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 30px;
-            margin-top: -20px;
-            animation: fadeSlideIn 1.5s ease-in-out;
-        }
-
-        /* Welcome Text Above Logo */
-        .welcome-text {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        /* Logo Styling */
-        .logo {
-            max-width: 250px;
-            margin-top: 15px !important;
-        }
-
-        /* Tagline */
-        .tagline {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Services Section */
-        .services {
-            font-size: 26px;
-            font-weight: bold;
-            margin-top: 30px;
-        }
-
-        /* Individual Service Titles */
-        .service-title {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        /* Animated Buttons */
-        .more-button, .price-button {
-            background: rgba(0, 0, 0, 0.3); /* Transparent black */
+            background: linear-gradient(to bottom, black, #2b1b00);
             color: white;
-            font-size: 20px;
-            padding: 12px 40px;
-            margin: 10px auto;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 220px;
             text-align: center;
+            transition: background 0.5s ease;
         }
-
-        .more-button:hover, .price-button:hover {
-            background: rgba(0, 0, 0, 0.6);
-            transform: scale(1.05);
-        }
-
-        /* Collapsible Services Section */
-        .services-content {
-            display: none;
-            font-size: 20px;
+        .hero {
             padding: 20px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), black);
-            border-radius: 8px;
-            transition: opacity 0.5s ease-in-out;
+            position: relative;
         }
-
-        .services-content.active {
-            display: block;
-            opacity: 1;
+        .logo {
+            max-width: 300px;
+            margin-top: -20px;
         }
-
-        /* Price Details */
-        .price-content {
+        .welcome {
+            font-size: 2.5em;
+            margin-bottom: -20px;
+        }
+        .highlight-circle {
+            border: 3px solid white;
+            border-radius: 50%;
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 1.3em;
+            animation: pulse 2s infinite;
+        }
+        .more-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .more-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .services, .about-me {
             display: none;
-            margin-top: 10px;
-            font-size: 18px;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .price-content.active {
-            display: block;
-        }
-
-        /* About Me Section */
-        .about-section {
-            margin-top: 40px;
-            font-size: 26px;
-            font-weight: bold;
-        }
-
-        .about-content {
-            display: none;
-            font-size: 18px;
+            background: linear-gradient(to bottom, transparent, black);
             padding: 20px;
-            background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.8));
-            border-radius: 8px;
-            transition: opacity 0.5s ease-in-out;
-            text-align: left;
+            border-radius: 10px;
+            margin-top: 20px;
         }
-
-        .about-content.active {
-            display: block;
-            opacity: 1;
+        .service-item {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .pricing {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .about-me img {
+            max-width: 150px;
+            border-radius: 10px;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
-
 <body>
-
     <div class="hero">
-        <p class="welcome-text">Welcome to</p>
-        <img src="static/images/logo.png" alt="O.G Sound Logo" class="logo">
-        <p class="tagline">I offer top-quality home AV installations at the best prices.</p>
+        <img src="/mnt/data/speakerpic.png" style="position: absolute; top: 20px; left: 20px; width: 80px;">
+        <img src="/mnt/data/speakerpic.png" style="position: absolute; top: 20px; right: 20px; width: 80px;">
+        <h1 class="welcome">Welcome To</h1>
+        <img src="/mnt/data/ogsoundlogo.png" class="logo">
+        <p class="highlight-circle">I offer top-quality home AV installations at the best prices.</p>
     </div>
 
-    <div class="services">Services</div>
-    <button class="more-button" onclick="toggleServices()">More</button>
+    <button class="more-btn" onclick="toggleServices()">More</button>
 
-    <div class="services-content" id="servicesContent">
-        <!-- Wall Mount TV -->
-        <div class="service-title">
-            <span>Wall Mount TV</span>
-            <button class="price-button" onclick="togglePrice('wallmount')">Prices</button>
-        </div>
-        <div class="price-content" id="wallmount">
-            <p>• Basic Mount (Fixed/Tilting, up to 65") $150</p>
-            <p>• Full-Motion Mount (Any size) $250</p>
-            <p>• Over Fireplace/Brick Wall $350+</p>
-            <p>• In-Wall Cable Management $100</p>
-            <p>• Soundbar Mounting $50</p>
-        </div>
-
-        <!-- Surround Sound Setup -->
-        <div class="service-title">
-            <span>Surround Sound Speaker Setup</span>
-            <button class="price-button" onclick="togglePrice('surround')">Prices</button>
-        </div>
-        <div class="price-content" id="surround">
-            <p>• 5.1 Home Theater Setup $200</p>
-            <p>• 7.1 Home Theater Setup $300</p>
-            <p>• Dolby Atmos Setup $400+</p>
-            <p>• Wall/Ceiling Speaker Mounting $75 per speaker</p>
-            <p>• Wire Concealment $150 per room</p>
-        </div>
+    <div class="services">
+        <h2>Services</h2>
+        <div class="service-item">Wall Mount TV <button onclick="togglePricing('tv')">Prices</button></div>
+        <div id="tv" class="pricing">Basic Mount: $150 | Full Motion: $250 | Over Fireplace: $350+</div>
+        <div class="service-item">Surround Sound Setup <button onclick="togglePricing('sound')">Prices</button></div>
+        <div id="sound" class="pricing">5.1 Setup: $200 | 7.1 Setup: $300 | Dolby Atmos: $400+</div>
+        <div class="service-item">Home Tech Fix <button onclick="togglePricing('tech')">Prices</button></div>
+        <div id="tech" class="pricing">Basic Fix: $100 | Advanced: $175 | Full Diagnosis: $250+</div>
     </div>
 
-    <div class="about-section">About Me</div>
-    <button class="more-button" onclick="toggleAbout()">More</button>
-
-    <div class="about-content" id="aboutContent">
-        <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting.</p>
-        <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
-        <p>✅ Fast, friendly, and professional service</p>
-        <p>✅ Expert troubleshooting – Fixing TV, sound, and Wi-Fi issues</p>
+    <button class="more-btn" onclick="toggleAbout()">About Me</button>
+    <div class="about-me">
+        <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert.</p>
+        <img src="/mnt/data/Aboutme.HEIC">
     </div>
-
-    <footer>
-        <p>© 2025 O.G Sound. All Rights Reserved.</p>
-    </footer>
 
     <script>
         function toggleServices() {
-            document.getElementById("servicesContent").classList.toggle("active");
+            const services = document.querySelector('.services');
+            services.style.display = services.style.display === 'block' ? 'none' : 'block';
         }
-
-        function togglePrice(id) {
-            document.getElementById(id).classList.toggle("active");
+        function togglePricing(id) {
+            const pricing = document.getElementById(id);
+            pricing.style.display = pricing.style.display === 'block' ? 'none' : 'block';
         }
-
         function toggleAbout() {
-            document.getElementById("aboutContent").classList.toggle("active");
+            const about = document.querySelector('.about-me');
+            about.style.display = about.style.display === 'block' ? 'none' : 'block';
         }
     </script>
-
 </body>
 </html>
