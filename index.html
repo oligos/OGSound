@@ -79,7 +79,7 @@
       width: 90px;
       height: auto;
       z-index: 1000;
-      cursor: pointer; /* so it’s obvious they’re clickable */
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
     .corner-image.left {
@@ -113,30 +113,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* Reduced top padding to bring text closer to the top */
-      padding-top: 120px;
+      padding-top: 60px; /* Reduced padding to bring elements closer */
     }
     .welcome {
       font-size: 4.2em;
       font-weight: 800;
-      margin-bottom: 0; /* Removed extra space below */
-      /* Extra shading at the top: second text-shadow with negative offset */
+      margin-bottom: 0;
       text-shadow:
         0 -2px 3px rgba(0, 0, 0, 0.7),
         2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
     .logo {
-      /* Increased the base width from 550px to 650px */
-      width: 650px; 
+      width: 750px; /* Increased logo size */
       max-width: 90%;
-      margin: 0; /* Removed extra space above/below */
+      margin: 0;
       transition: transform 0.3s ease;
     }
     .highlight-text {
       font-size: 1.5em;
       font-weight: 800;
-      margin-top: 0; /* Removed extra space above */
+      margin-top: 0;
       text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
       transition: transform 0.3s ease;
     }
@@ -242,7 +239,6 @@
     @keyframes emailPulse {
       0%, 100% {
         color: #fff;
-        /* Black glow around white text */
         text-shadow: 0 0 5px #000;
       }
       50% {
@@ -398,7 +394,6 @@
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const scaleFactor = 1 + Math.min(scrollY / 1000, 0.1);
-
       document.getElementById('scroll-welcome').style.transform = "scale(" + scaleFactor + ")";
       document.getElementById('scroll-logo').style.transform = "scale(" + scaleFactor + ")";
       document.getElementById('scroll-text').style.transform = "scale(" + scaleFactor + ")";
@@ -407,9 +402,7 @@
     // Pulse speaker on click
     function pulseSpeaker(elementId) {
       const speaker = document.getElementById(elementId);
-      // Add the animation class
       speaker.classList.add('pulse-speaker');
-      // Remove the class after animation ends so it can be triggered again
       speaker.addEventListener('animationend', () => {
         speaker.classList.remove('pulse-speaker');
       }, { once: true });
