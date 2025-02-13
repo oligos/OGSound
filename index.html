@@ -5,75 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O.G Sound</title>
 
-    <!-- Ensure the CSS file is correctly linked -->
+    <!-- Ensure CSS file is correctly linked -->
     <link rel="stylesheet" type="text/css" href="static/styles.css">
 
-    <!-- Ensure the JavaScript file loads correctly -->
+    <!-- Ensure JavaScript file is correctly linked -->
     <script defer src="static/script.js"></script>
-
-    <style>
-        /* Responsive Mobile Fix */
-        .speaker-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-
-        .small-speaker {
-            width: 50px;
-            height: auto;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .logo {
-            max-width: 200px;
-            height: auto;
-        }
-
-        .section {
-            text-align: center;
-            margin: 20px auto;
-            max-width: 600px;
-        }
-
-        .dropdown-content {
-            display: none;
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
-        }
-
-        .dropdown-content.show {
-            display: block;
-        }
-
-        .more-btn, .price-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-
-        .more-btn:hover, .price-btn:hover {
-            background-color: #0056b3;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            background: #222;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 
@@ -93,7 +29,7 @@
     <!-- Services Section -->
     <div class="section">
         <h2 class="section-title">Services</h2>
-        <button class="more-btn" aria-expanded="false" onclick="toggleDropdown('services')">More</button>
+        <button class="more-btn" onclick="toggleDropdown('services', this)">More</button>
         <div id="services" class="dropdown-content">
             <div class="service-item">
                 <p>Wall Mount TV</p>
@@ -135,7 +71,7 @@
     <!-- About Me Section -->
     <div class="section">
         <h2 class="section-title">About Me</h2>
-        <button class="more-btn" aria-expanded="false" onclick="toggleDropdown('about')">More</button>
+        <button class="more-btn" onclick="toggleDropdown('about', this)">More</button>
         <div id="about" class="dropdown-content">
             <p>Hi, I’m Olivier, the founder of O.G Sound, your local Vancouver residential AV expert specializing in TV mounting, home theatre setups, and tech troubleshooting...</p>
             <p>✅ Best prices in Vancouver – Quality work without the premium price tag</p>
@@ -150,18 +86,16 @@
         <p>&copy; 2025 O.G Sound | All Rights Reserved</p>
     </footer>
 
+    <!-- JavaScript for Dropdowns -->
     <script>
-        function toggleDropdown(id) {
+        function toggleDropdown(id, button) {
             const element = document.getElementById(id);
-            const isExpanded = element.classList.contains('show');
-
-            // Toggle class
-            element.classList.toggle('show');
-
-            // Update button aria-expanded
-            const button = document.querySelector(`[onclick="toggleDropdown('${id}')"]`);
-            if (button) {
-                button.setAttribute('aria-expanded', !isExpanded);
+            if (element.classList.contains("show")) {
+                element.classList.remove("show");
+                button.setAttribute("aria-expanded", "false");
+            } else {
+                element.classList.add("show");
+                button.setAttribute("aria-expanded", "true");
             }
         }
     </script>
