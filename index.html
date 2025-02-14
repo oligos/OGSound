@@ -303,12 +303,14 @@
        class="corner-image left" 
        alt="Speaker Top Left" 
        id="speaker-left" 
-       onclick="pulseSpeaker('speaker-left')">
+       onclick="pulseSpeaker('speaker-left')" 
+       ontouchstart="pulseSpeaker('speaker-left')">
   <img src="static/images/speakerpic.png" 
        class="corner-image right" 
        alt="Speaker Top Right" 
        id="speaker-right" 
-       onclick="pulseSpeaker('speaker-right')">
+       onclick="pulseSpeaker('speaker-right')" 
+       ontouchstart="pulseSpeaker('speaker-right')">
 
   <!-- HERO SECTION -->
   <div class="hero">
@@ -412,14 +414,15 @@
       speaker.addEventListener('animationend', () => {
         speaker.classList.remove('pulse-speaker');
       }, { once: true });
-
-      // Create a new Audio instance on each click
-      // so the previous sound isn't cut off
+      
+      // Create a new Audio instance for each click and set preload for faster playback
       if (elementId === 'speaker-left') {
         const snare = new Audio('static/sounds/snare.mp3');
+        snare.preload = "auto";
         snare.play();
       } else if (elementId === 'speaker-right') {
         const kick = new Audio('static/sounds/kick.mp3');
+        kick.preload = "auto";
         kick.play();
       }
     }
