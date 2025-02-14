@@ -388,6 +388,10 @@
   </div>
 
   <script>
+    // Create audio objects for snare and kick
+    const snareSound = new Audio('static/sounds/snare.mp3');
+    const kickSound = new Audio('static/sounds/kick.mp3');
+
     // Toggles dropdowns with a slide-out effect
     function toggleDropdown(id) {
       const element = document.getElementById(id);
@@ -403,13 +407,24 @@
       document.getElementById('scroll-text').style.transform = "scale(" + scaleFactor + ")";
     });
 
-    // Pulse speaker on click
+    // Pulse speaker on click + play respective sounds
     function pulseSpeaker(elementId) {
       const speaker = document.getElementById(elementId);
+
+      // Trigger the pulse animation
       speaker.classList.add('pulse-speaker');
       speaker.addEventListener('animationend', () => {
         speaker.classList.remove('pulse-speaker');
       }, { once: true });
+
+      // Play snare if left speaker, kick if right speaker
+      if (elementId === 'speaker-left') {
+        snareSound.currentTime = 0; // reset to start
+        snareSound.play();
+      } else if (elementId === 'speaker-right') {
+        kickSound.currentTime = 0; // reset to start
+        kickSound.play();
+      }
     }
   </script>
 </body>
