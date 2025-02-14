@@ -390,6 +390,12 @@
   </div>
 
   <script>
+    // Preload base audio instances
+    const baseSnare = new Audio('static/sounds/snare.mp3');
+    baseSnare.preload = "auto";
+    const baseKick = new Audio('static/sounds/kick.mp3');
+    baseKick.preload = "auto";
+
     // Variable to store the last touch event time
     let lastTouchTime = 0;
 
@@ -408,8 +414,7 @@
       document.getElementById('scroll-text').style.transform = "scale(" + scaleFactor + ")";
     });
 
-    // Pulse speaker on click + play fresh audio each time.
-    // This function now accepts the event object and suppresses duplicate events.
+    // Pulse speaker on click + play cloned audio instance instantly
     function pulseSpeaker(elementId, e) {
       // If this is a touch event, record its time.
       if (e.type === "touchstart") {
@@ -429,14 +434,12 @@
         speaker.classList.remove('pulse-speaker');
       }, { once: true });
       
-      // Create a new Audio instance for each click and set preload for faster playback
+      // Clone the preloaded audio for immediate playback
       if (elementId === 'speaker-left') {
-        const snare = new Audio('static/sounds/snare.mp3');
-        snare.preload = "auto";
+        const snare = baseSnare.cloneNode();
         snare.play();
       } else if (elementId === 'speaker-right') {
-        const kick = new Audio('static/sounds/kick.mp3');
-        kick.preload = "auto";
+        const kick = baseKick.cloneNode();
         kick.play();
       }
     }
