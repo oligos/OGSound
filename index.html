@@ -303,14 +303,14 @@
        class="corner-image left" 
        alt="Speaker Top Left" 
        id="speaker-left" 
-       onclick="pulseSpeaker('speaker-left')" 
-       ontouchstart="pulseSpeaker('speaker-left')">
+       onclick="pulseSpeaker('speaker-left', event)" 
+       ontouchstart="pulseSpeaker('speaker-left', event)">
   <img src="static/images/speakerpic.png" 
        class="corner-image right" 
        alt="Speaker Top Right" 
        id="speaker-right" 
-       onclick="pulseSpeaker('speaker-right')" 
-       ontouchstart="pulseSpeaker('speaker-right')">
+       onclick="pulseSpeaker('speaker-right', event)" 
+       ontouchstart="pulseSpeaker('speaker-right', event)">
 
   <!-- HERO SECTION -->
   <div class="hero">
@@ -390,6 +390,9 @@
   </div>
 
   <script>
+    // Variable to store the last touch event time
+    let lastTouchTime = 0;
+
     // Toggles dropdowns with a slide-out effect
     function toggleDropdown(id) {
       const element = document.getElementById(id);
@@ -405,8 +408,19 @@
       document.getElementById('scroll-text').style.transform = "scale(" + scaleFactor + ")";
     });
 
-    // Pulse speaker on click + play fresh audio each time
-    function pulseSpeaker(elementId) {
+    // Pulse speaker on click + play fresh audio each time.
+    // This function now accepts the event object and suppresses duplicate events.
+    function pulseSpeaker(elementId, e) {
+      // If this is a touch event, record its time.
+      if (e.type === "touchstart") {
+        lastTouchTime = Date.now();
+      } else if (e.type === "click") {
+        // If a click happens shortly after a touch, ignore it.
+        if (Date.now() - lastTouchTime < 300) {
+          return;
+        }
+      }
+
       const speaker = document.getElementById(elementId);
       
       // Trigger the pulse animation
