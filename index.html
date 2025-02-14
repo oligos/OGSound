@@ -417,11 +417,13 @@
         speaker.classList.remove('pulse-speaker');
       }, { once: true });
 
-      // Play snare if left speaker, kick if right speaker
+      // Immediately restart the sound from the beginning on each click
       if (elementId === 'speaker-left') {
+        snareSound.pause();
         snareSound.currentTime = 0; // reset to start
         snareSound.play();
       } else if (elementId === 'speaker-right') {
+        kickSound.pause();
         kickSound.currentTime = 0; // reset to start
         kickSound.play();
       }
